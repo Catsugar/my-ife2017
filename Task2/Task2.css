@@ -1,10 +1,12 @@
 @charset "utf-8";
 /*预设*/
+body,ul,h1{
+	margin:0;}
 body{
 	background:#ccc;
-	margin:0px 0px;
 	font-family: "微软雅黑";
 }
+ul{list-style:none}
 /*****************header******************/
 .header{
 	background-color:#000;
@@ -13,27 +15,85 @@ body{
 	width:100%;
 }
 .header h1{
-	float:left;}
+	display:inline-block;
+	line-height:60px;
+	float:left;
+}
 .header li{
 	float:right;
 	line-height:60px;
 	margin: 0 5px;
 	padding-right:10px;}
-.header li img{
-	width:0.4em
-}
+.header li a{
+	text-decoration:none;
+	color:#FFF;
+	font-weight:bold;}
+.header li a:hover{
+	color:#CCC;}
+
 /*****************acticle******************/
-.box{
-	margin:0 2%;
+.box, .sidebar{
+	padding:20px 20px;
+	margin:20px 5%;
 	background-color:#FFF;
+	border:2px outset #CCC;
+}
+.box p{
+	text-indent:2em;}
+.box li img{
+	width:160px;
 }
 .grey{
 	color:#666;}
+.imgbox li{
+	border:#CCC solid 1px;
+	margin-top:10px;
+	width:160px;
+	text-align:center;
+}
+/*B表格*/
+.box table{ border-collapse:collapse; }
+.box table,.box th,.box td,.box tr{
+	border:1px solid #CCC;}
+.box table{width:100%;}
+.box th{
+	background-color:#333;
+	color:#FFF;
+	text-align:left;}
+.box tr:last-child{
+	background-color:#CCC;
+	color:#000;
+	font-weight:bold;}
+
 /*****************sidebar******************/
 .sidebar{
-	margin:0 2%;
+	margin:0 5%;
 	background-color:#FFF;
+	border:2px outset #CCC;
 }
+.sidebar>h3{
+	border-left:#ccc 4px solid;
+	line-height:40px;}
+.registerbox{
+	margin-left:150px;}
+.registerbox table{
+	vertical-align:text-top;
+	width:80%;}
+.registerbox td:first-child{
+	text-align:right;
+	width:30%;}
+.registerbox td:last-child{
+	text-align:left;
+	width:50%;}
+.sub{
+	width:100%;
+	background-color:#F36;
+	font-weight:bold;
+	line-height:32px;
+	color:#FFF;
+	border-radius:5px;
+	border:none;
+	font-size:14px;}
 /*****************footer******************/
 .footer{
 	background-color:#000;
