@@ -1,0 +1,25 @@
+@charset "utf-8";
+.greybox{
+	width:400px;
+	height:200px;
+	 margin:-100px 0 0 -200px;
+	background-color:#ccc;
+	position:absolute;  
+    left:50%;  
+    top:50%; }
+.yellowbox1{
+	width:50px;
+	height:50px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color:#fc0;
+	border-bottom-right-radius:50px;}
+.yellowbox2{
+	width:50px;
+	height:50px;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	background-color:#fc0;
+	border-top-left-radius:50px;}
