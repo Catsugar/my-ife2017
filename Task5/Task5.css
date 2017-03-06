@@ -48,11 +48,13 @@ ul{list-style:none}
 	margin:20px;
 	background-color:#FFF;
 	border:2px outset #CCC;
+	overflow:hidden;
 }
 .box p{
 	text-indent:2em;}
 .box li img{
 	width:160px;
+	overflow:hidden;
 }
 .grey{
 	color:#666;}
@@ -61,6 +63,7 @@ ul{list-style:none}
 	margin-top:10px;
 	width:160px;
 	text-align:center;
+	overflow:hidden;
 }
 /*B表格*/
 .box table{ border-collapse:collapse; }
