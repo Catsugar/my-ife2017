@@ -1,0 +1,124 @@
+@charset "utf-8";
+/*******预设********/
+body,ul,h1{
+	margin:0;}
+body{
+	font-family: "微软雅黑";
+	background-color:#FC3;
+}
+ul{list-style:none}
+/*****************header******************/
+.header{
+	background-color:#000;
+	color:#FFF;
+	height:60px;
+	width:100%;
+}
+.header h1{
+	display:inline-block;
+	line-height:60px;
+	float:left;
+}
+.header li{
+	float:right;
+	line-height:60px;
+	margin: 0 5px;
+	padding-right:10px;}
+.header li a{
+	text-decoration:none;
+	color:#FFF;
+	font-weight:bold;}
+.header li a:hover{                              
+	color:#CCC;}
+/*****************左边盒子******************/
+.container{
+	width:100%;
+	background-color:#FC3;
+	height:auto !important;
+    height:1000px; 
+    min-height:1000px; }
+.mainbox{
+	position:relative;
+	width: auto;
+    margin: 0 435px 0 0;
+}
+/*****************acticle******************/
+.box{
+	padding:20px;
+	margin:20px;
+	background-color:#FFF;
+	border:2px outset #CCC;
+}
+.box p{
+	text-indent:2em;}
+.box li img{
+	width:160px;
+}
+.grey{
+	color:#666;}
+.imgbox li{
+	border:#CCC solid 1px;
+	margin-top:10px;
+	width:160px;
+	text-align:center;
+}
+/*B表格*/
+.box table{ border-collapse:collapse; }
+.box table,.box th,.box td,.box tr{
+	border:1px solid #CCC;}
+.box table{width:100%;}
+.box th{
+	background-color:#333;
+	color:#FFF;
+	text-align:left;}
+.box tr:last-child{
+	background-color:#CCC;
+	color:#000;
+	font-weight:bold;}
+
+/*****************sidebar******************/
+.sidebar{
+    position:relative;	
+	float:right;
+	width:350px;
+	padding:20px;
+	margin:0 20px 20px 0;
+	background-color:#FFF;
+	border:2px outset #CCC;
+}
+.sidebar>h3{
+	border-left:#ccc 4px solid;
+	line-height:40px;}
+.registerbox{
+	width:350px;
+	/*margin-left:150px;*/}
+.registerbox table{
+	vertical-align:text-top;
+	width:90%;}
+.registerbox td:first-child{
+	text-align:right;
+	width:40%;}
+.registerbox td:last-child{
+	text-align:left;
+	width:50%;}
+.sub{
+	width:100%;
+	background-color:#900;
+	font-weight:bold;
+	line-height:32px;
+	color:#FFF;
+	border-radius:5px;
+	border:none;
+	font-size:14px;}
+/*****************footer******************/
+.footer{
+	clear:both;
+	background-color:#000;
+	color:#FFF;
+	text-align:center;
+	margin:0 auto;
+	padding: 20px 0 40px 0;
+	width:100%;
+}
+
+
