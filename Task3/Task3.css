@@ -2,38 +2,39 @@
 /*预设*/
 body,ul,h1{
 	margin:0;}
-body{
+.box{
 	background:#eee;
 	font-family: "微软雅黑";
 	padding:20px;
 	border:1px solid #999;
-	height:auto;
+	height:auto !important;
+    height:420px; 
+    min-height:420px; 
 }
-/**************************/
 .namebox,.infobox,.picbox{
 	background-color:#FFF;
 	padding:20px;
 	border:1px solid #999;
-	display:inline-block;
-	
+	position:relative;
+}
+.infobox{
+   width: auto;
+   margin: 0 142px 0 222px;
+}
+.picbox{
+	width:80px;
+	float:right;
 }
 .namebox{
 	width:160px;
-	height:80px;
 	float:left;}
 .namebox img{
 	float:left;}
+/**************************/
 .namebox h3{
 	float:left;
 	display:inline-block;
 	margin-left:20px;}
-.infobox{
-	float:left;
-	margin:0 20px;
-	}
-.picbox{
-	width:80px;
-	float:right;}
 .picbox img{
 	margin-bottom:20px;}
 .picbox img:last-child{
