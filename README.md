@@ -5,5 +5,6 @@
 * 任务三：三栏布局  https://catsuger.github.io/my-ife2017/Task3/Task3.html
 * 任务四：定位和居中问题  https://catsuger.github.io/my-ife2017/Task4/Task4.html
 * 任务五：零基础HTML及CSS编码（二） https://catsuger.github.io/my-ife2017/Task5/Task5.html
-* 任务六：零基础HTML及CSS编码（二） https://catsuger.github.io/my-ife2017/Task6/Task6.html
-* 任务七：零基础HTML及CSS编码（二） https://catsuger.github.io/my-ife2017/Task7/Task7.html
+* 任务六：通过HTML及CSS模拟报纸排版 https://catsuger.github.io/my-ife2017/Task6/Task6.html
+* 任务七：实现常见的技术产品官网的页面架构及样式布局 https://catsuger.github.io/my-ife2017/Task7/Task7.html
+* 任务十三：零基础JavaScript编码（一） https://catsuger.github.io/my-ife2017/Task13/Task13.html
