@@ -1,0 +1,165 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务五：基础JavaScript练习（二）</title>
+<style type="text/css">
+.numteam li{
+	display:inline-block;
+	margin:10px;
+	width:25px;
+	background-color:#FF9;
+	border:1px solid #C00;
+	color:#C00;
+	list-style:none;
+	float:left;
+	border-radius:3px;
+	text-align:center;
+	}
+
+form{clear:both;}
+  
+</style>
+</head>
+<body>
+<div class="numteam" id="numteam">
+  <ul>
+
+  </ul>
+</div>
+<form>
+<input id="inputbox" type="text" name="inputbox">
+<input id="right—in" type="button" value="右侧入">
+<input id="right—out" type="button" value="右侧出">
+<input id="left—in" type="button" value="左侧入">
+<input id="left—out" type="button" value="左侧出">
+<input id="sort" type="button" value="排序">
+</form>
+
+<script type="text/javascript">
+
+/*****绑定按钮的事件*****/
+function btn() {
+  document.getElementById("right—in").onclick=function(){rightin()};
+  document.getElementById("right—out").onclick=function(){rightout()};
+  document.getElementById("left—in").onclick=function(){leftin()};
+  document.getElementById("left—out").onclick=function(){leftout()};
+  document.getElementById("sort").onclick=function(){sort()};
+}
+btn();
+/******得到数据的函数*****/
+function getData() {
+  if(document.getElementById("inputbox").value){
+    return document.getElementById("inputbox").value;
+  }else{
+    alert("请输入数字！");
+	return; 
+  }
+}
+/******限制数据长度的函数*****/
+function limitLength() {
+	var data=document.getElementById("numteam").getElementsByTagName("li");
+	if(data.length>6){
+	 alert("您输入的数字已经超过60个了，不能再输入啦！");
+	 return true;
+   }
+}
+/******限制数据大小的函数*****/
+function limitBig(num) {
+   if(num>100 || num<10){
+	  alert("请输入10和100之间的数字！");
+	  return false;
+	}else{
+	  return true;
+	}
+}
+/******排序的函数*****/
+function sort() {
+	var data=document.getElementById("numteam").getElementsByTagName("li");
+	if(data.length===0){
+		alert("没有数组不排序，请输入值！");
+		return;
+	}
+	var d;
+	var datalen=[];
+	for(var i=0;i<data.length;i++){
+		datalen[i]=data[i].style.height.slice(0, -2);
+	}
+	/**排序***/
+	for(var i=0;i<datalen.length;i++){
+	    for(var j=0;j<datalen.length;j++){
+		  if(datalen[i]>datalen[j]){
+			  d=datalen[i];
+			  datalen[i]=datalen[j];
+			  datalen[j]=d;
+		  }
+	    }
+	}
+	//alert(datalen);
+	/***先移除原先的数***/
+	var parent=document.getElementById("numteam");
+	parent.innerHTML="";
+	/****重新生成数组***/
+	for(var i=0;i<datalen.length;i++){
+		var li=document.createElement("li");
+		li.innerHTML=datalen[i];
+	    li.style.height=datalen[i]+"px";
+		parent.appendChild(li);
+    }
+}
+/******右入函数*****/
+function rightin() {
+  if(limitLength()){
+	  return;
+  }
+  var parent=document.getElementById("numteam");
+  var li=document.createElement("li");
+  var newnum=getData();
+  var isnum=limitBig(newnum);
+  if(isnum===false || newnum===undefined){
+	  return;
+  }else{
+     li.innerHTML=newnum;
+	 li.style.height=newnum+"px";
+  }
+  parent.appendChild(li);
+}
+/******左入函数*****/
+function leftin() {
+  if(limitLength()){
+	  return;
+  }
+  var parent=document.getElementById("numteam");
+  var li=document.createElement("li");
+  var newnum=getData();
+  var isnum=limitBig(newnum);
+  if(isnum===false || newnum===undefined){
+	  return;
+  }else{
+     li.innerHTML=newnum;
+	 li.style.height=newnum+"px";
+  }
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  if(lis.length===0){
+	  parent.appendChild(li);
+  }else{
+	  parent.insertBefore(li,lis[0]);
+  }
+}
+/******左出函数*****/
+function leftout() {
+  var parent=document.getElementById("numteam");
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  alert("即将消失的数字是"+lis[0].innerHTML);
+  parent.removeChild(lis[0]);
+}
+/******右出函数*****/
+function rightout() {
+  var parent=document.getElementById("numteam");
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  alert("即将消失的数字是"+lis[lis.length-1].innerHTML);
+  parent.removeChild(lis[lis.length-1]);
+}
+</script>
+</body>
+</html>
