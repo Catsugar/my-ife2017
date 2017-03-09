@@ -48,17 +48,22 @@ btn();
 function getData() {
 	if(document.getElementById("inputbox").value){
 	  var newnum=document.getElementById("inputbox").value;
+	  return newnum;
 	}else{
 	  alert("请输入一个数字呀");
+	  return;
 	}
-	return newnum;
 }
 /******右入函数*****/
 function rightin() {
   var parent=document.getElementById("numteam");
   var li=document.createElement("li");
   var newnum=getData();
-  li.innerHTML=newnum;
+  if(newnum===undefined){
+	  return;
+  }else{
+     li.innerHTML=newnum;
+  }
   parent.appendChild(li);
 }
 /******左入函数*****/
@@ -66,7 +71,11 @@ function leftin() {
   var parent=document.getElementById("numteam");
   var li=document.createElement("li");
   var newnum=getData();
-  li.innerHTML=newnum;
+  if(newnum===undefined){
+	  return;
+  }else{
+     li.innerHTML=newnum;
+  }
   var lis=document.getElementById("numteam").getElementsByTagName("li");
   if(lis.length===0){
 	  parent.appendChild(li);
