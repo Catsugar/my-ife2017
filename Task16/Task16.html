@@ -1,102 +1,91 @@
 <!DOCTYPE>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>IFE JavaScript Task 01</title>
-  </head>
+<head>
+<meta charset="utf-8">
+<title>任务四：基础JavaScript练习（一）</title>
+<style type="text/css">
+.numteam li{
+	margin:10px;
+	padding:5px;
+	background-color:#FF9;
+	border:1px solid #C00;
+	color:#C00;
+	list-style:none;
+	float:left;
+	border-radius:5px;
+	text-align:center;}
+form{clear:both;}
+  
+</style>
+</head>
 <body>
-
-  <ul id="source">
-    <li>北京空气质量：<b>90</b></li>
-    <li>上海空气质量：<b>70</b></li>
-    <li>天津空气质量：<b>80</b></li>
-    <li>广州空气质量：<b>50</b></li>
-    <li>深圳空气质量：<b>40</b></li>
-    <li>福州空气质量：<b>32</b></li>
-    <li>成都空气质量：<b>90</b></li>
+<div class="numteam" id="numteam">
+  <ul>
+  <!--- <li>10</li> 
+   <li>10</li> 
+   <li>10</li> --->
   </ul>
-
-  <ul id="resort">
-    <!-- 
-    <li>第一名：北京空气质量：<b>90</b></li>
-    <li>第二名：北京空气质量：<b>90</b></li>
-    <li>第三名：北京空气质量：<b>90</b></li>
-     -->
-  </ul>
-  <button id="sort-btn">排序</button>
+</div>
+<form>
+<input id="inputbox" type="text" name="inputbox">
+<input id="right—in" type="button" value="右侧入">
+<input id="right—out" type="button" value="右侧出">
+<input id="left—in" type="button" value="左侧入">
+<input id="left—out" type="button" value="左侧出">
+</form>
 
 <script type="text/javascript">
 
-/**
- * getData方法
- * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
- * 返回一个数组，格式见函数中示例
- */
-function getData() {       
-  var data=new Array();
-  var city=document.getElementById("source").getElementsByTagName("li");
-  for(var i in city){
-      /*var citydata=new Array();
-	  citydata[0]=city[i].innerHTML.slice(0,2);
-	  citydata[1]=city[i].innerHTML.slice(-6,-4);
-	  data.push(citydata);
-	  data[i]=[city[i].innerHTML.slice(0,2),city[i].innerHTML.slice(-6,-4)];*/
-	  var a=toString(city[i].innerHTML);
-	  data.push(a.slice(0,2));
-	  alert(a);
-  }
-  alert(data);
-  return data;
+/*****绑定按钮的事件*****/
+function btn() {
+  document.getElementById("right—in").onclick=function(){rightin()};
+  document.getElementById("right—out").onclick=function(){rightout()};
+  document.getElementById("left—in").onclick=function(){leftin()};
+  document.getElementById("left—out").onclick=function(){leftout()};
 }
-
-/**
- * sortAqiData
- * 按空气质量对data进行从小到大的排序
- * 返回一个排序后的数组
- */
-function sortAqiData(data) {
-	var a;
-	for(var i in data){
-	  for(var j in data){
-		  if(data[i][1]>data[j][1]){
-			  d=data[i];
-			  data[i]=data[j];
-			  data[j]=d;
-		  }
-	  }
+btn();
+/******得到数据的函数*****/
+function getData() {
+	if(document.getElementById("inputbox").value){
+	  var newnum=document.getElementById("inputbox").value;
+	}else{
+	  alert("请输入一个数字呀");
 	}
+	return newnum;
 }
-
-/**
- * render
- * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
- * 格式见ul中的注释的部分
- */
-function render(data) {
-  var parent=document.getElementById("resort");
-  for(var i in data){
+/******右入函数*****/
+function rightin() {
+  var parent=document.getElementById("numteam");
   var li=document.createElement("li");
-  li.innerHTML="第"+"一"+"名："+data[i][0]+"空气质量：<b>"+data[i][1]+"</b>";
- alert(parent.innerHTML);
+  var newnum=getData();
+  li.innerHTML=newnum;
   parent.appendChild(li);
+}
+/******左入函数*****/
+function leftin() {
+  var parent=document.getElementById("numteam");
+  var li=document.createElement("li");
+  var newnum=getData();
+  li.innerHTML=newnum;
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  if(lis.length===0){
+	  parent.appendChild(li);
+  }else{
+	  parent.insertBefore(li,lis[0]);
   }
 }
-
-function btnHandle() {
-  var aqiData = getData();
-    //alert(aqiData);
-  aqiData = sortAqiData(aqiData);
-  render(aqiData);
+/******左出函数*****/
+function leftout() {
+  var parent=document.getElementById("numteam");
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  parent.removeChild(lis[0]);
 }
-
-function init() {
-  document.getElementById("sort-btn").onclick=function(){getData()};
-  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-
+/******右出函数*****/
+function rightout() {
+  var parent=document.getElementById("numteam");
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  parent.removeChild(lis[lis.length-1]);
 }
-
-init();
-
 </script>
 </body>
 </html>
