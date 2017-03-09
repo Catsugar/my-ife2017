@@ -11,4 +11,4 @@
 * 任务十四：零基础JavaScript编码（二） https://catsuger.github.io/my-ife2017/Task14/Task14.html
 * 任务十五：零基础JavaScript编码（三） https://catsuger.github.io/my-ife2017/Task15/Task15.html
 * 任务十六：基础JavaScript练习（一） https://catsuger.github.io/my-ife2017/Task16/Task16.html
-* 任务十七：基础JavaScript练习（一） https://catsuger.github.io/my-ife2017/Task17/Task17.html
+* 任务十七：基础JavaScript练习（二） https://catsuger.github.io/my-ife2017/Task17/Task17.html
