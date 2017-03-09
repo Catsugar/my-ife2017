@@ -78,12 +78,14 @@ function leftin() {
 function leftout() {
   var parent=document.getElementById("numteam");
   var lis=document.getElementById("numteam").getElementsByTagName("li");
+  alert("即将消失的数字是"+lis[0].innerHTML);
   parent.removeChild(lis[0]);
 }
 /******右出函数*****/
 function rightout() {
   var parent=document.getElementById("numteam");
   var lis=document.getElementById("numteam").getElementsByTagName("li");
+  alert("即将消失的数字是"+lis[lis.length-1].innerHTML);
   parent.removeChild(lis[lis.length-1]);
 }
 </script>
