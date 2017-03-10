@@ -1,0 +1,137 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务六：基础JavaScript练习（三）</title>
+<style type="text/css">
+.numteam li{
+	margin:10px;
+	padding:5px;
+	background-color:#FF9;
+	border:1px solid #C00;
+	color:#C00;
+	list-style:none;
+	float:left;
+	border-radius:5px;
+	text-align:center;}
+form{clear:both;}
+input{margin-top:20px;}  
+.checked{
+	background-color:#C00;
+	font-weight:bold;
+	color:#FF9;}
+</style>
+</head>
+<body>
+<div class="numteam" id="numteam">
+  <ul>
+  <!--- <li>10</li> 
+   <li>10</li> 
+   <li>10</li> --->
+  </ul>
+</div>
+<form>
+<textarea name="description" rows=8 cols=40 id="inputbox" placeholder="请输入一些值，可以是文字，数字等，多个值请空格或换行." ></textarea>
+<br/>
+<input id="right—in" type="button" value="右侧入">
+<input id="right—out" type="button" value="右侧出">
+<input id="left—in" type="button" value="左侧入">
+<input id="left—out" type="button" value="左侧出">
+<br/>
+
+<input name="searchbox" id="searchbox" type="text">
+<input id="searchbtn" type="button" value="查询">
+</form>
+<script type="text/javascript">
+
+/*****绑定按钮的事件*****/
+function btn() {
+  document.getElementById("right—in").onclick=function(){rightin()};
+  document.getElementById("right—out").onclick=function(){rightout()};
+  document.getElementById("left—in").onclick=function(){leftin()};
+  document.getElementById("left—out").onclick=function(){leftout()};
+  document.getElementById("searchbtn").onclick=function(){searchnum()};
+}
+btn();
+/******得到数据的函数*****/
+function getData() {
+	var newarr=new Array();
+	if(document.getElementById("inputbox").value){
+	  newarr=document.getElementById("inputbox").value.split(/[\n\s]/g);
+	}else{
+	  alert("请输入！如需输入多个值，请空格或换行。");
+	  return;
+	}
+	return newarr;
+}
+/******右入函数*****/
+function rightin() {
+  var parent=document.getElementById("numteam");
+  var newarr=getData();
+  if(newarr.length===0){
+	  return;
+  }else{
+	  for(var i=0;i<newarr.length;i++){
+		 if(newarr[i]===""){ 
+		   continue;
+		 }else{
+           var li=document.createElement("li");
+           li.innerHTML=newarr[i];
+		   parent.appendChild(li);
+		 }
+	  }
+  }
+}
+/******左入函数*****/
+function leftin() {
+  var parent=document.getElementById("numteam");
+  var newarr=getData();
+  if(newarr.length===0){
+	  return;
+  }else{
+	  for(var i=0;i<newarr.length;i++){
+		 if(newarr[i]===""){ 
+		 return;}
+         var li=document.createElement("li");
+         li.innerHTML=newarr[i];
+         var lis=document.getElementById("numteam").getElementsByTagName("li");
+         if(lis.length===0){
+	       parent.appendChild(li);
+         }else{
+	       parent.insertBefore(li,lis[0]);
+         }
+  	  }
+  }
+}
+/******左出函数*****/
+function leftout() {
+  var parent=document.getElementById("numteam");
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  alert("即将消失的数字是"+lis[0].innerHTML);
+  parent.removeChild(lis[0]);
+}
+/******右出函数*****/
+function rightout() {
+  var parent=document.getElementById("numteam");
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  alert("即将消失的数字是"+lis[lis.length-1].innerHTML);
+  parent.removeChild(lis[lis.length-1]);
+}
+/******查询函数*****/
+function searchnum() {
+  var searchvalue=document.getElementById("searchbox").value;
+  var lis=document.getElementById("numteam").getElementsByTagName("li");
+  for(var i=0; i<lis.length;i++){
+	  //alert(lis[i].innerHTML.search(searchvalue));
+	  if(lis[i].innerHTML.search(searchvalue)!=-1){
+		  lis[i].style.backgroundColor="#C00";
+		  lis[i].style.fontWeight="bold";
+		  lis[i].style.color="#FF9";
+	  }
+  }
+  
+}
+
+</script>
+</body>
+</html>
