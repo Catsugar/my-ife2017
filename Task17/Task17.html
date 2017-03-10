@@ -53,7 +53,7 @@ function getData() {
     return document.getElementById("inputbox").value;
   }else{
     alert("请输入数字！");
-	return; 
+	return false; 
   }
 }
 /******限制数据长度的函数*****/
@@ -109,7 +109,7 @@ function sort() {
 }
 /******右入函数*****/
 function rightin() {
-  if(limitLength()){
+  if(limitLength()===true || getData()===false){
 	  return;
   }
   var parent=document.getElementById("numteam");
@@ -126,7 +126,7 @@ function rightin() {
 }
 /******左入函数*****/
 function leftin() {
-  if(limitLength()){
+  if(limitLength()===true || getData()===false){
 	  return;
   }
   var parent=document.getElementById("numteam");
