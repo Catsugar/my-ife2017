@@ -59,18 +59,18 @@ function getData() {
 /******限制数据长度的函数*****/
 function limitLength() {
 	var data=document.getElementById("numteam").getElementsByTagName("li");
-	if(data.length>6){
+	if(data.length>60){
 	 alert("您输入的数字已经超过60个了，不能再输入啦！");
 	 return true;
    }
 }
 /******限制数据大小的函数*****/
 function limitBig(num) {
-   if(num>100 || num<10){
+   if(num<100 && num>10){
+      return true;
+	}else{
 	  alert("请输入10和100之间的数字！");
 	  return false;
-	}else{
-	  return true;
 	}
 }
 /******排序的函数*****/
