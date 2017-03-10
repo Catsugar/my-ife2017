@@ -1,0 +1,66 @@
+@charset "utf-8";
+body {
+   font: 24px Helvetica;
+   margin: 0px;
+   padding: 0px;
+   color:#FFF;
+}
+
+#container{
+   background-color:#CCC;
+   display: -webkit-flex;
+   display:         flex;
+   -webkit-flex-flow: row wrap;
+           flex-flow: row wrap;
+   border: 1px solid #666;
+   justify-content: space-between;
+   align-items: flex-start;
+   flex:none;
+   -webkit-flex:none;
+ }
+#container > div {
+   margin:20px;
+   border: 1px solid #666;
+   border-radius:5px;
+   text-align: center;
+   
+}
+#container > div:nth-child(1) {
+	width:150px;
+	height:120px;
+	line-height:120px;
+   background:#F03;}
+#container > div:nth-child(2){
+   width:150px;
+   height:100px;
+   line-height:100px;
+   background:#36F;}
+#container > div:nth-child(3) {
+   width:150px;
+   height:40px;
+   line-height:40px;
+   background:#F63; }
+#container > div:nth-child(4) {
+   	width:150px;
+	height:200px;
+	line-height:200px;
+   background:#093;}
+   /* 窄到小于640px */
+@media(max-width: 640px) {
+#container > div:nth-child(1) {
+   -webkit-order: 2;
+           order: 2;
+}
+#container > div:nth-child(2) {
+   -webkit-order: 3;
+           order: 3;
+}
+#container > div:nth-child(3) {
+   -webkit-order: 4;
+           order: 4;
+}
+#container > div:nth-child(4) {
+   -webkit-order: 1;
+           order: 1;
+}
+}
