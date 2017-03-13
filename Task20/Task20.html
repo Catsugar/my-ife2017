@@ -130,8 +130,12 @@ function clear(){
 	for(var i=0; i< divs.length;i++){
 	  divs[i].style.backgroundColor="#ff9";
 	  divs[i].className="";
-	  divs[i].style.color="#666";
-	  divs[i].style.fontWeight="normal";
+	  
+	  var spans=document.getElementById("container").getElementsByTagName("span");
+      for(var j=0; j<spans.length;j++){
+       spans[j].style.color="#666";
+	   spans[j].style.fontWeight="normal";	 
+	  }	
 	}
 }
 
