@@ -112,8 +112,8 @@ function Order(num){
 	  showarr[i].className="selected";
 	  var value=showarr[i].getElementsByTagName("span")[0].innerHTML;
       if(value===searchvalue){
-		 showarr[i].style.color="red";
-		 showarr[i].style.fontWeight="bold";
+		 showarr[i].getElementsByTagName("span")[0].style.color="red";
+		 showarr[i].getElementsByTagName("span")[0].style.fontWeight="bold";
          clearInterval(timer);		 
 		 alert("恭喜找到了哟"); 
 	  }
