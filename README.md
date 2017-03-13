@@ -18,4 +18,5 @@
 * 任务十六：基础JavaScript练习（一） https://catsuger.github.io/my-ife2017/Task16/Task16.html
 * 任务十七：基础JavaScript练习（二） https://catsuger.github.io/my-ife2017/Task17/Task17.html
 * 任务十八：基础JavaScript练习（三） https://catsuger.github.io/my-ife2017/Task18/Task18.html
-* 任务十19：任务七：JavaScript和树（一） https://catsuger.github.io/my-ife2017/Task19/Task19.html
+* 任务十19：JavaScript和树（一） https://catsuger.github.io/my-ife2017/Task19/Task19.html
+* 任务十20：JavaScript和树（二） https://catsuger.github.io/my-ife2017/Task20/Task20.html
