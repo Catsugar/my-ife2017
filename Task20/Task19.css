@@ -1,0 +1,32 @@
+@charset "utf-8";
+body {
+   font: 24px Helvetica;
+   margin: 0px;
+   padding: 0px;
+   color:#FFF;
+}
+div{
+   display: -webkit-flex;
+   display:         flex;
+   -webkit-flex-flow: row wrap;
+           flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;}
+#container div{
+   background-color:#FF9;
+}
+#container,#btns{
+   width:100%;
+   margin-top:20px;
+ }
+#container div{
+   border: 2px solid #666;
+   border-radius:5px;
+   text-align: center;
+   padding:20px;
+   float:left;
+   margin:10px;
+}
+/****如果遍历的话****/
+.selected{
+	background-color:pink;}
