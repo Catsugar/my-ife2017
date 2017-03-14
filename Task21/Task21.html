@@ -1,0 +1,190 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务九：JavaScript和树（三）</title>
+<link type="text/css" href="Task21.css" rel="stylesheet" />
+</head>
+<body>
+<div id="container">
+  <div id="tree"><span>苹果</span>
+    <div><span>香蕉</span>
+      <div><span>西瓜</span>
+        <div><span>荔枝</span></div>
+        <div><span>桃子</span></div>
+        <div><span>橘子</span></div>
+      </div>
+      <div><span>草莓</span>
+        <div><span>桂圆</span></div>
+        <div><span>樱桃</span></div>
+      </div>
+      <div><span>哈密瓜</span></div>
+    </div>
+    <div><span>榴莲</span>
+      <div><span>葡萄</span></div>
+      <div><span>火龙果</span>
+        <div><span>木瓜</span></div>
+        <div><span>西红柿<span></div>
+      </div>
+      <div><span>柚子</span>
+        <div><span>椰子</span></div>
+        <div><span>柠檬<span></div>
+        <div><span>蜜枣</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="btns">
+  <form>
+    <input name="searchbox" id="searchbox" type="text">
+    <input id="DLR" type="button" value="先根遍历查询">
+    <input id="LRD" type="button" value="后根遍历查询">
+    <input id="clear" type="button" value="清除屏幕">
+    <br>
+    <input name="addbox" id="addbox" type="text">
+    <input id="add" type="button" value="添加">
+    <input id="delete" type="button" value="删除">
+
+ </form>
+</div>
+<script type="text/javascript">
+/**设置全局变量******/
+ var divs=document.getElementById("container").getElementsByTagName("div");
+/*****绑定按钮的事件*****/
+function btn() {
+  document.getElementById("DLR").onclick=function(){
+	  Order(1);}
+  document.getElementById("LRD").onclick=function(){
+      Order(2);} 
+  document.getElementById("clear").onclick=function(){
+      clear();} 
+  document.getElementById("add").onclick=function(){
+	  addValue();} 
+  document.getElementById("delete").onclick=function(){
+	  deleteValue();} 
+  for(var i=0; i< divs.length;i++){
+	  //组织事件冒泡
+       //var divs=document.getElementById("container").getElementsByTagName("div");
+	 divs[i].addEventListener('click',function(e){e.stopPropagation()},false);
+     divs[i].onclick=function(){
+		 this.style.backgroundColor="orange";
+		 this.getElementsByTagName("span")[0].style.color="#fff";
+	     this.getElementsByTagName("span")[0].style.fontWeight="bold";
+		 this.className="selected";
+	 }
+  }
+}
+btn();
+/*****先根排序*****/
+function preOrder(){
+	var showarr=[];
+	var arr=document.getElementById("container").getElementsByTagName("div");
+	for (var i=0; i<arr.length;i++){
+		var parent=arr[i].parentNode;
+		var index=showarr.indexOf(parent);
+		var brotherindex=showarr.indexOf(parent.children[0]);
+		if(arr[i]===parent.children[0]){
+			showarr.splice(index+1, 0, arr[i]);
+		}else{
+		    showarr.push(arr[i]);
+		}
+	}
+	
+	return showarr;
+}
+
+/*****后根排序*****/
+function postOrder(){
+	var showarr=[];
+	var arr=document.getElementById("container").getElementsByTagName("div");
+	for (var i=0; i<arr.length;i++){
+		var parent=arr[i].parentNode;
+		var parentindex=showarr.indexOf(parent);
+		for(var k=0; k<parent.children.length;k++){
+			if(arr[i]===parent.children[k]){
+				var index=k;
+			}
+		}
+		for(var j=0; j<index; j++){
+			if(showarr.indexOf(parent.children[index])!==-1){
+		       var brotherindex=showarr.indexOf(parent.children[j]);
+		    }
+		}
+		if(brotherindex!==-1){
+			showarr.splice(parentindex, 0, arr[i]);
+		}else{
+			showarr.push(arr[i]);
+		}
+	}
+	return showarr;
+}
+
+/*****遍历主程序*****/
+function Order(num){
+	//先执行一次清除屏幕
+  clear();
+  if(num===1){
+    var showarr=preOrder();
+  }else if(num===2){
+    var showarr=postOrder();
+  }
+  var searchvalue=document.getElementById("searchbox").value;
+  var i=0;
+  var timer=setInterval(function(){
+	  /****变色和标记遍历过****/
+	  showarr[i].style.backgroundColor="orange";
+	  var value=showarr[i].getElementsByTagName("span")[0].innerHTML;
+	 // alert(i+"---------"+showarr.length);
+	  i++;
+      if(value===searchvalue){
+		 showarr[i-1].getElementsByTagName("span")[0].style.color="red";
+		 showarr[i-1].getElementsByTagName("span")[0].style.fontWeight="bold";
+         clearInterval(timer);		 
+		 alert("恭喜找到了哟"); 
+	  }
+	  if(i===showarr.length){
+		  clearInterval(timer);
+		  alert("找不到,嘤嘤嘤。");
+	  }
+  },500)
+}
+//清屏函数
+function clear(){
+	for(var i=0; i< divs.length;i++){
+	  divs[i].style.backgroundColor="#ff9";
+	  divs[i].className="";
+	  var spans=document.getElementById("container").getElementsByTagName("span");
+      for(var j=0; j<spans.length;j++){
+       spans[j].style.color="#666";
+	   spans[j].style.fontWeight="normal";	 
+	  }	
+	}
+}
+//增加函数
+function addValue(){
+    var addvalue=document.getElementById("addbox").value;
+	if(document.getElementsByClassName("selected").length!==0){
+      var selection=document.getElementsByClassName("selected");
+	}else{
+	  var selection=[];
+	  selection[0]=document.getElementById("container");
+	}
+    for(var i=0; i< selection.length;i++){
+		var div=document.createElement("div");
+           div.innerHTML="<span>"+addvalue+"</span>";
+		   selection[i].appendChild(div);
+	}
+	btn();
+	
+}
+//删除函数
+function deleteValue(){
+    var selection=document.getElementsByClassName("selected");
+    for(var i=0; i< selection.length;i++){
+      var parent=selection[i].parentNode;
+      parent.removeChild(selection[i]);	}
+}
+
+</script>
+</body>
+</html>
