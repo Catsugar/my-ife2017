@@ -1,0 +1,33 @@
+@charset "utf-8";
+body {
+   font: 18px "微软雅黑";
+   margin: 0px;
+   padding: 0px;
+   color:#06C;
+}
+div{
+   display: -webkit-flex;
+   display:         flex;
+   -webkit-flex-flow: row wrap;
+           flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;
+   margin-top:20px;}
+form, input{
+	vertical-align:central;
+	}
+#name{padding:4px 10px;
+       border-radius:3px;
+	   font: 18px "微软雅黑";
+	   color:#333;}
+#btn{
+    background-color:#06C;
+	color:#FFF;
+	font: 18px "微软雅黑";
+	border:none;
+	border-radius:3px;
+	padding:4px 10px;}
+span{
+	font: 16px "微软雅黑";
+	color:#999;
+	margin-top:10px;}

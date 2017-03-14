@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务一：表单（一）单个表单项的验证</title>
+<link type="text/css" href="Task22.css" rel="stylesheet" />
+</head>
+<body>
+<div id="namebox">
+  <form>
+    姓名：<input name="name" id="name" type="text">
+    <input id="btn" type="button" value="验证"><br>
+    <span>必填，长度为4~16个字符</span>
+ </form>
+</div>
+<script type="text/javascript">
+/*****绑定按钮的事件*****/
+function btn() {
+  document.getElementById("btn").onclick=function(){
+	  check();}
+}
+btn();
+/*****验证*****/
+function check(){
+	var input=document.getElementById("name").value;
+	var span=document.getElementById("namebox").getElementsByTagName("span");
+	var Length=getStrSize(input);
+	if(input==null || input==""){
+	  span[0].innerHTML="姓名不能为空";
+	  span[0].style.color="red";
+	}else if(Length<4 || Length>10){
+	  span[0].innerHTML="您输入的长度不正确";
+	  span[0].style.color="red";
+	}else{
+	  span[0].innerHTML="名称格式正确";
+	  span[0].style.color="green";
+	}
+}
+var getStrSize = function(str) {  
+    var  Length = 0;
+	var charCode = -1;  
+    for (var i = 0; i < str.length; i++) {  
+        charCode = str.charCodeAt(i);  
+        if (charCode >= 0 && charCode <= 128){
+			Length += 1;
+		}else{
+		    Length += 2;  
+        }  
+	}
+    return Length;  
+};  
+</script>
+</body>
+</html>
