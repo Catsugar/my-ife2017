@@ -20,3 +20,7 @@
 * 任务十八：基础JavaScript练习（三） https://catsuger.github.io/my-ife2017/Task18/Task18.html
 * 任务十九：JavaScript和树（一） https://catsuger.github.io/my-ife2017/Task19/Task19.html
 * 任务二十：JavaScript和树（二） https://catsuger.github.io/my-ife2017/Task20/Task20.html
+* 任务二十一：JavaScript和树（三） https://catsuger.github.io/my-ife2017/Task21/Task21.html
+* 任务二十二：表单（一）单个表单项的检验 https://catsuger.github.io/my-ife2017/Task22/Task22.html
+* 任务二十三：表单（二）多个表单项的动态校验 https://catsuger.github.io/my-ife2017/Task23/Task23.html
+* 任务二十四：表单（三）联动https://catsuger.github.io/my-ife2017/Task24/Task24.html
