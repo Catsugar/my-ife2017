@@ -1,4 +1,4 @@
-<!DOCTYPE>
+  <!DOCTYPE>
 <html>
 <head>
 <meta charset="utf-8">
@@ -82,16 +82,16 @@ function postOrder(){
 				var index=k;
 			}
 		}
-		do{
+		for(var j=0; j<index; j++){
 			if(showarr.indexOf(parent.children[index])!==-1){
 		       var brotherindex=showarr.indexOf(parent.children[j]);
-			   index++;
 		    }
-		}while(brotherindex===-1 && index<parent.children.length);
-		if(brotherindex===-1){
+		}
+		if(brotherindex!==-1){
 			showarr.splice(parentindex, 0, arr[i]);
 		}else{
-		    showarr.splice(brotherindex, 0, arr[i]);
+			showarr.push(arr[i]);
+		    //showarr.splice(brotherindex+1, 0, arr[i]);
 		}
 	}
 	return showarr;
