@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务三：表单（三）联动</title>
+<link type="text/css" href="Task24.css" rel="stylesheet" />
+</head>
+<body>
+<div id="choosebox" class="choosebox">
+  <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td></td>
+          <td><input type="radio" name="isstudent" value="student">在校生</td>
+          <td><input type="radio" name="isstudent" value="notstudent">非在校生</td>
+        </tr>
+        <tr style="display:none">
+          <td>学校</td>
+          <td id="city">
+            <select name="城市" id="citylist">
+              <option value="0" selected>北京</option>
+              <option value="1">上海</option>
+              <option value="2" >杭州</option>
+              <option value="3">广州</option>
+            </select>          
+          </td>
+          <td id="schoollist" >
+            <select name="beijing">
+              <option selected>北京大学</option>
+              <option>清华大学</option>
+              <option>中国人民大学 </option>
+              <option >北京师范大学</option>
+            </select>
+            <select name="shanghai" style="display:none">
+              <option selected>复旦大学 </option>
+              <option >上海交通大学</option>
+              <option>同济大学 </option>
+              <option >华东师范大学</option>
+            </select>
+            <select name="hangzhou" style="display:none">
+              <option selected>浙江大学 </option>
+              <option >杭州电子科技大学</option>
+              <option>浙江工商大学 </option>
+              <option >浙江理工大学</option>
+            </select>
+            <select name="guangzhou" style="display:none">
+              <option selected>中山大学 </option>
+              <option >华南理工大学</option>
+              <option>华南师范大学 </option>
+              <option >暨南大学</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>就业单位</td>
+          <td colspan="2"><input id="job" type="text" name="job" ></td>
+        </tr>
+  </table>
+</div>
+<script type="text/javascript">
+/*****绑定按钮的事件*****/
+function btn() {
+	//是否是在校生
+  var isstudent=document.getElementById("choosebox").getElementsByTagName("input");
+  var tr=document.getElementById("choosebox").getElementsByTagName("tr");
+  isstudent[0].onclick=function(){
+	 isstudent[1].checked==false; 
+     tr[2].style.display="none";
+     tr[1].style.display="table-row";}  
+  isstudent[1].onclick=function(){
+	 isstudent[0].checked==false; 
+     tr[2].style.display="table-row";
+     tr[1].style.display="none";}
+  //选择学校地点
+  var citylist=document.getElementById("citylist");
+  var city=document.getElementById("citylist").getElementsByTagName("option");
+  var school=document.getElementById("schoollist").getElementsByTagName("select");
+  citylist.onchange=function(){
+	  //清空
+	for(var i=0;i<school.length;i++){
+	  school[i].style.display="none"; 
+	}
+	for(var j=0;j<city.length;j++){
+	 if(citylist.value==j){
+        school[j].style.display="table-cell"; 
+	 }
+   }
+  }
+}
+btn();
+
+</script>
+</body>
+</html>

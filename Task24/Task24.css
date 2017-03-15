@@ -1,0 +1,43 @@
+@charset "utf-8";
+body {
+   font: 18px "微软雅黑";
+   margin: 0px;
+   padding: 0px;
+   color:#06C;
+}
+input,select{
+	padding:3px 10px;
+	font: 16px "微软雅黑";
+	border-radius:3px;}
+.choosebox{
+   display: -webkit-flex;
+   display:         flex;
+   -webkit-flex-flow: row wrap;
+           flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;
+   padding:30px;
+   margin:0 300px;}
+.choosebox table{
+	vertical-align:text-top;
+	width:600px;}
+.choosebox table tr{
+	height:60px;}
+.choosebox td:nth-child(1){
+	padding-right:20px;
+	font-weight:bold;
+	text-align:right;
+	width:20%;}
+.choosebox td:nth-child(2){
+	text-align:left;
+	width:40%;}
+.choosebox td:nth-child(3){
+	text-align:left;
+	width:40%;}
+.choosebox tr:nth-child(1){
+	font-weight:bold;}
+.choosebox tr:nth-child(3) input{
+	width:90%;}
+select{
+	width:80%;}
+
