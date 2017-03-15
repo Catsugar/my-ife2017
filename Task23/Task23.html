@@ -71,7 +71,11 @@ function btn() {
   document.getElementById("phone").onblur=function(){checkphone();}
    //电机提交按钮
   document.getElementById("sub").onclick=function(){
-	  }
+	  if(checkname() && checkpassword0() && checkpassword1() && checkemail() && checkphone() ){
+		  alert("您的输入正确");}
+	  else{
+		  alert("您的输入有误，请重新输入！");}
+  }
 }
 btn();
 /*****得到焦点显示函数*****/
@@ -103,14 +107,17 @@ function checkname(){
 	  info.innerHTML="姓名不能为空";
 	  info.style.color="red";
 	  document.getElementById("name").style.border="1px solid red";
+	  return false;
 	}else if(Length<4 || Length>10){
 	  info.innerHTML="您输入的长度不正确";
 	  info.style.color="red";
 	  document.getElementById("name").style.border="1px solid red";
+	  return false;
 	}else{
 	  info.innerHTML="名称格式正确";
 	  info.style.color="green";
 	  document.getElementById("name").style.border="1px solid green";
+	  return true;
 	}
 }
 /*****验证密码*****/
@@ -122,14 +129,17 @@ function checkpassword0(){
 	  info.innerHTML="密码不能为空";
 	  info.style.color="red";
 	  document.getElementById("password0").style.border="1px solid red";
+	  return false;
 	}else if(Length<4 || Length>10){
 	  info.innerHTML="您输入的长度不正确";
 	  info.style.color="red";
 	  document.getElementById("password0").style.border="1px solid red";
+	  return false;
 	}else{
 	  info.innerHTML="密码正确";
 	  info.style.color="green";
 	  document.getElementById("password0").style.border="1px solid green";
+	  return true;
 	}
 }
 //验证密码是否输入一致
@@ -141,10 +151,12 @@ function checkpassword1(){
 	  info.innerHTML="密码输入不一致";
 	  info.style.color="red";
 	  document.getElementById("password1").style.border="1px solid red";
+	  return false;
 	}else{
 	  info.innerHTML="密码输入一致";
 	  info.style.color="green";
 	  document.getElementById("password1").style.border="1px solid green";
+	  	  return true;
 	}
 }
 /*****验证邮箱*****/
@@ -156,11 +168,13 @@ function checkemail(){
     if (at<1||point-at<2){
       info.innerHTML="邮箱格式错误";
 	  info.style.color="red";
-	  document.getElementById("email").style.border="1px solid red";     
+	  document.getElementById("email").style.border="1px solid red";  
+	  return false;
 	}else {
 	  info.innerHTML="邮箱填写正确";
 	  info.style.color="green";
-	  document.getElementById("email").style.border="1px solid green";     
+	  document.getElementById("email").style.border="1px solid green";   
+	  return true;
 	 }
 }
 
@@ -172,15 +186,18 @@ function checkphone(){
 	if(input.charCodeAt(0)!==49 || input==""){
 	  info.innerHTML="您输入的号码格式不正确";
 	  info.style.color="red";
-	  document.getElementById("phone").style.border="1px solid red";     
+	  document.getElementById("phone").style.border="1px solid red";
+	  return false;
 	}else if(Length!==11){
 	  info.innerHTML="您输入的号码长度不正确";
 	  info.style.color="red";
-	  document.getElementById("phone").style.border="1px solid red";     
+	  document.getElementById("phone").style.border="1px solid red"; 
+	  return false;
 	}else{
 	  info.innerHTML="手机填写正确";
 	  info.style.color="green";
-	  document.getElementById("phone").style.border="1px solid green";     
+	  document.getElementById("phone").style.border="1px solid green";  
+	  return true;
 	}
 }
 /******检验字符串都是数字的函数******/
@@ -207,7 +224,7 @@ var getStrSize = function(str) {
         }  
 	}
     return Length;  
-};  
+}
 </script>
 </body>
 </html>
