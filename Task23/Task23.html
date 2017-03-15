@@ -6,40 +6,195 @@
 <link type="text/css" href="Task23.css" rel="stylesheet" />
 </head>
 <body>
-<div id="namebox">
-  <form>
-    姓名：<input name="name" id="name" type="text"><br>
-    <span>必填，长度为4~16个字符</span><br>
-    姓名：<input name="name" id="name" type="text"><br>
-    姓名：<input name="name" id="name" type="text"><br>
-    姓名：<input name="name" id="name" type="text"><br>
-    姓名：<input name="name" id="name" type="text"><br>
-    <input id="btn" type="button" value="验证"><br>
- </form>
+<div id="registerbox" class="registerbox">
+        <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>姓名</td>
+          <td><input name="name" id="name" type="text"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="grey" id="nameinfo" style="display:none">必填，长度为4~16个字符</td>
+        </tr>
+        <tr>
+          <td>密码</td>
+          <td><input id="password0" type="password" name="password" ></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="grey" id="password0info" style="display:none">请正确输入4-16位密码</td>
+        </tr>
+        <tr>
+          <td>密码确认</td>
+          <td><input id="password1" type="password" name="password" ></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="grey" id="password1info" style="display:none">再次输入相同密码</td>
+        </tr>
+        <tr>
+          <td>邮箱</td>
+          <td><input name="email" id="email" type="text"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="grey" id="emailinfo" style="display:none">请正确输入的邮箱</td>
+        </tr>
+        <tr>
+          <td>手机</td>
+          <td><input name="phone" id="phone" type="text"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="grey" id="phoneinfo" style="display:none">请正确输入手机号码</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input id="sub" class="sub" type="button" value="验证"></td>
+        </tr>
+      </table>
 </div>
 <script type="text/javascript">
 /*****绑定按钮的事件*****/
 function btn() {
-  document.getElementById("btn").onclick=function(){
-	  check();}
+	//得到焦点时
+  document.getElementById("name").onfocus=function(){show(1);}
+  document.getElementById("password0").onfocus=function(){show(2);}
+  document.getElementById("password1").onfocus=function(){show(3);}
+  document.getElementById("email").onfocus=function(){show(4);}
+  document.getElementById("phone").onfocus=function(){show(5);}
+  //失去焦点时
+  document.getElementById("name").onblur=function(){checkname();}
+  document.getElementById("password0").onblur=function(){checkpassword0();}
+  document.getElementById("password1").onblur=function(){checkpassword1();}
+  document.getElementById("email").onblur=function(){checkemail();}
+  document.getElementById("phone").onblur=function(){checkphone();}
+   //电机提交按钮
+  document.getElementById("sub").onclick=function(){
+	  }
 }
 btn();
-/*****验证*****/
-function check(){
+/*****得到焦点显示函数*****/
+function show(n){
+switch(n)
+{
+    case 1:
+        document.getElementById("nameinfo").style.display="block";
+        break;
+    case 2:
+        document.getElementById("password0info").style.display="block";
+        break;
+    case 3:
+        document.getElementById("password1info").style.display="block";
+        break;
+    case 4:
+        document.getElementById("emailinfo").style.display="block";
+        break;
+    case 5:
+        document.getElementById("phoneinfo").style.display="block";
+        break;
+}}
+/*****验证姓名*****/
+function checkname(){
 	var input=document.getElementById("name").value;
-	var span=document.getElementById("namebox").getElementsByTagName("span");
+	var info=document.getElementById("nameinfo");
 	var Length=getStrSize(input);
 	if(input==null || input==""){
-	  span[0].innerHTML="姓名不能为空";
-	  span[0].style.color="red";
+	  info.innerHTML="姓名不能为空";
+	  info.style.color="red";
+	  document.getElementById("name").style.border="1px solid red";
 	}else if(Length<4 || Length>10){
-	  span[0].innerHTML="您输入的长度不正确";
-	  span[0].style.color="red";
+	  info.innerHTML="您输入的长度不正确";
+	  info.style.color="red";
+	  document.getElementById("name").style.border="1px solid red";
 	}else{
-	  span[0].innerHTML="名称格式正确";
-	  span[0].style.color="green";
+	  info.innerHTML="名称格式正确";
+	  info.style.color="green";
+	  document.getElementById("name").style.border="1px solid green";
 	}
 }
+/*****验证密码*****/
+function checkpassword0(){
+	var input=document.getElementById("password0").value;
+	var info=document.getElementById("password0info");
+	var Length=getStrSize(input);
+	if(input==null || input==""){
+	  info.innerHTML="密码不能为空";
+	  info.style.color="red";
+	  document.getElementById("password0").style.border="1px solid red";
+	}else if(Length<4 || Length>10){
+	  info.innerHTML="您输入的长度不正确";
+	  info.style.color="red";
+	  document.getElementById("password0").style.border="1px solid red";
+	}else{
+	  info.innerHTML="密码正确";
+	  info.style.color="green";
+	  document.getElementById("password0").style.border="1px solid green";
+	}
+}
+//验证密码是否输入一致
+function checkpassword1(){
+	var input0=document.getElementById("password0").value;
+	var input1=document.getElementById("password1").value;
+	var info=document.getElementById("password1info");
+    if(input0!==input1){
+	  info.innerHTML="密码输入不一致";
+	  info.style.color="red";
+	  document.getElementById("password1").style.border="1px solid red";
+	}else{
+	  info.innerHTML="密码输入一致";
+	  info.style.color="green";
+	  document.getElementById("password1").style.border="1px solid green";
+	}
+}
+/*****验证邮箱*****/
+function checkemail(){
+	var input=document.getElementById("email").value;
+	var info=document.getElementById("emailinfo");
+    var at=input.indexOf("@");
+    var point=input.lastIndexOf(".");
+    if (at<1||point-at<2){
+      info.innerHTML="邮箱格式错误";
+	  info.style.color="red";
+	  document.getElementById("email").style.border="1px solid red";     
+	}else {
+	  info.innerHTML="邮箱填写正确";
+	  info.style.color="green";
+	  document.getElementById("email").style.border="1px solid green";     
+	 }
+}
+
+/*****验证手机*****/
+function checkphone(){
+	var input=document.getElementById("phone").value;
+	var info=document.getElementById("phoneinfo");
+	var Length=getStrSize(input);
+	if(input.charCodeAt(0)!==49 || input==""){
+	  info.innerHTML="您输入的号码格式不正确";
+	  info.style.color="red";
+	  document.getElementById("phone").style.border="1px solid red";     
+	}else if(Length!==11){
+	  info.innerHTML="您输入的号码长度不正确";
+	  info.style.color="red";
+	  document.getElementById("phone").style.border="1px solid red";     
+	}else{
+	  info.innerHTML="手机填写正确";
+	  info.style.color="green";
+	  document.getElementById("phone").style.border="1px solid green";     
+	}
+}
+/******检验字符串都是数字的函数******/
+var isNum = function(str) {    
+    for (var i = 0; i < str.length; i++) {  
+       var charCode = str.charCodeAt(i);  
+        if (charCode >=57 || charCode <=48){
+			return false;
+		}else{
+		    return true;
+        }  
+	}
+};  
+/******检验字符串长度的函数******/
 var getStrSize = function(str) {  
     var  Length = 0;
 	var charCode = -1;  

@@ -6,28 +6,58 @@ body {
    color:#06C;
 }
 div{
+   padding:30px;
+}
+input{
+	width:100%;
+	padding:5px 10px;
+	font: 16px "微软雅黑";
+	color:#999;
+	border-radius:3px;
+	}
+.registerbox{
    display: -webkit-flex;
    display:         flex;
    -webkit-flex-flow: row wrap;
            flex-flow: row wrap;
    justify-content: center;
    align-items: center;
-   margin-top:20px;}
-form, input{
-	vertical-align:central;
-	}
-#name{padding:4px 10px;
-       border-radius:3px;
-	   font: 18px "微软雅黑";
-	   color:#333;}
-#btn{
-    background-color:#06C;
-	color:#FFF;
-	font: 18px "微软雅黑";
-	border:none;
-	border-radius:3px;
-	padding:4px 10px;}
-span{
+}
+.grey{
 	font: 16px "微软雅黑";
 	color:#999;
-	margin-top:10px;}
+	}
+.red{
+	font: 16px "微软雅黑";
+	color:#F00;
+}
+.green{
+	font: 16px "微软雅黑";
+	color:green;
+}
+.registerbox table{
+	vertical-align:text-top;
+	width:400px;}
+.registerbox tr{
+	height:35px;}
+.registerbox td:first-child{
+	text-align:right;
+	width:40%;
+	font:bold 18px "微软雅黑";
+	padding-right:20px;}
+.registerbox td:last-child{
+    border-radius:3px;
+    color:#333;
+	text-align:left;
+	width:60%;}
+
+#sub{
+	width:100px;
+	float:right;
+	background-color:#06C;
+	color:#FFF;
+	font: 18px "微软雅黑";
+	padding:4px 10px;
+	font-weight:bold;
+	line-height:32px;
+	border:none;}
