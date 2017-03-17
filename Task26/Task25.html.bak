@@ -1,0 +1,99 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务四：听指令的小方块（一）</title>
+<link type="text/css" href="Task25.css" rel="stylesheet" />
+</head>
+<body>
+<div id="choosebox" class="choosebox">
+  <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td></td>
+          <td><input type="radio" name="student" value="student" checked="true">在校生</td>
+          <td><input type="radio" name="notstudent" value="notstudent">非在校生</td>
+        </tr>
+        <tr id="schooloptions">
+          <td>学校</td>
+          <td id="school">
+            <select name="城市">
+              <option value="beijing" selected>北京</option>
+              <option value="shanghai">上海</option>
+              <option value="guangzhou" >杭州</option>
+              <option value="shenzhen">深圳</option>
+            </select>          </td>
+          <td id="schoollist" >
+            <select name="beijing">
+              <option selected>北京大学</option>
+              <option>清华大学</option>
+              <option>中国人民大学 </option>
+              <option >北京师范大学</option>
+            </select>
+            <select name="shanghai" style="display:none">
+              <option selected>复旦大学 </option>
+              <option >上海交通大学</option>
+              <option>同济大学 </option>
+              <option >华东师范大学</option>
+            </select>
+            <select name="hangzhou" style="display:none">
+              <option selected>浙江大学 </option>
+              <option >杭州电子科技大学</option>
+              <option>浙江工商大学 </option>
+              <option >浙江理工大学</option>
+            </select>
+            <select name="guangzhou" style="display:none">
+              <option selected>中山大学 </option>
+              <option >华南理工大学</option>
+              <option>华南师范大学 </option>
+              <option >暨南大学</option>
+            </select>
+          </td>
+        </tr>
+        <tr id="joboptions" style="display:none" >
+          <td>就业单位</td>
+          <td colspan="2"><input id="job" type="text" name="job" ></td>
+        </tr>
+  </table>
+</div>
+<script type="text/javascript">
+/*****绑定按钮的事件*****/
+function btn() {
+	//是否是在校生
+  if(document.getElementsByName("isstudent").checked==true){
+     document.getElementById("joboptions").style.display="none";
+     document.getElementById("schooloptions").style.display="block";
+  }else if(document.getElementsByName("isstudent").checked==true){
+     document.getElementById("joboptions").style.display="block";
+     document.getElementById("schooloptions").style.display="none";
+  }
+  /*选择学校地点
+  document.getElementById("name").onblur=function(){checkname();}
+  document.getElementById("password0").onblur=function(){checkpassword0();}
+  document.getElementById("password1").onblur=function(){checkpassword1();}
+  document.getElementById("email").onblur=function(){checkemail();}*/
+}
+btn();
+/*****得到焦点显示函数*****/
+function show(n){
+switch(n)
+{
+    case 1:
+        document.getElementById("nameinfo").style.display="block";
+        break;
+    case 2:
+        document.getElementById("password0info").style.display="block";
+        break;
+    case 3:
+        document.getElementById("password1info").style.display="block";
+        break;
+    case 4:
+        document.getElementById("emailinfo").style.display="block";
+        break;
+    case 5:
+        document.getElementById("phoneinfo").style.display="block";
+        break;
+}
+}
+</script>
+</body>
+</html>

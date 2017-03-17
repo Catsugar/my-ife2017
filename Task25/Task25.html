@@ -1,0 +1,147 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务四：听指令的小方块（一）</title>
+<link type="text/css" href="Task25.css" rel="stylesheet" />
+</head>
+<body>
+<h1>听指令的小方块</h1>
+<div id="box" class="box">
+<div class="cell" id="cell"><img src="arrow.png" width="50" height="50"></div>
+<ul>
+    <li><span class="row">1</span><span class="cols">1</span></li>
+    <li><span class="row">2</span></li>
+    <li><span class="row">3</span></li>
+    <li><span class="row">4</span></li>
+    <li><span class="row">5</span></li>
+    <li><span class="row">6</span></li>
+    <li><span class="row">7</span></li>
+    <li><span class="row">8</span></li>
+    <li><span class="cols">2</span></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><span class="cols">3</span></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><span class="cols">4</span></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><span class="cols">5</span></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><span class="cols">6</span></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><span class="cols">7</span></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><span class="cols">8</span></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</div>
+<div class="btnbox">
+<form>
+    <input name="input" type="text" id="inputbox" >
+    <input name="btn" type="button" id="btn" class="btn" value="执行">
+</form>
+<p>输入GO：向箭头方向前进一格<br>TUN LEF：向左转90°,TUN RIG：向右转90°,TUN BAC：向右转180度</p>
+</div>
+<script type="text/javascript">
+/***全局变量*****/
+var cell=document.getElementById("cell");
+var deg=0;//旋转的角度计数
+/*****绑定按钮的事件*****/
+function btn() {
+	var btn=document.getElementById("btn");
+	btn.onclick=function(){
+		var action=document.getElementById("inputbox").value;
+		if(action=="GO"){
+			GO();
+		}else if(action=="TUN LEF"){
+			TUN_LEF();
+		}else if(action=="TUN RIG"){
+			TUN_RIG();
+		}else if(action=="TUN BAC"){
+			TUN_BAC();
+		}else{
+			alert("输入有误，请重新输入");
+		}
+	}
+}
+btn();
+/*****前进函数*****/
+function GO(){
+	var cellTop=cell.offsetTop;
+	var cellLeft=cell.offsetLeft;
+	var absdeg=deg;
+	//如果角度是负值，取正         
+	while(absdeg<0){
+		absdeg=absdeg+360;
+	}
+	if(absdeg%360===0 && cellLeft<364){//左走
+	     cell.style.left=cellLeft+52+"px";
+	}else if(absdeg%360===90 && cellTop<364){//下走
+		cell.style.top=cellTop+52+"px"; 
+	}else if(absdeg%360===180 && cellLeft>0){//右走
+		cell.style.left=cellLeft+(-52)+"px"; 
+	}else if(absdeg%360===270 && cellTop>0){//上走
+		cell.style.top=(cellTop-52)+"px"; 
+	}else{ return;}
+}
+/*****左转90函数*****/
+function TUN_LEF(){
+	deg=deg-90;
+	cell.style.transform="rotate("+deg+"deg)";
+	
+}
+/*****右转90函数*****/
+function TUN_RIG(){
+	deg=deg+90;
+	cell.style.transform="rotate("+deg+"deg)";
+}
+/*****右转180函数*****/
+function TUN_BAC(){
+	deg=deg+180;
+	cell.style.transform="rotate("+deg+"deg)";
+}
+
+</script>
+</body>
+</html>
