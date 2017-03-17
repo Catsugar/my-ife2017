@@ -101,126 +101,83 @@ function btn() {
 	var btn=document.getElementById("btn");
 	btn.onclick=function(){
 		var action=document.getElementById("inputbox").value;
-		if(action=="1"){
-			GO();
-		}else if(action=="2"){
-			TUN_LEF();
-		}else if(action=="3"){
-			TUN_LEF();
-		}else if(action=="4"){
-			TUN_LEF();
-		}else if(action=="TUN LEF"){
-			TUN_LEF();
-		}else if(action=="TUN LEF"){
-			TUN_LEF();
-		}else if(action=="TUN LEF"){
-			TUN_LEF();
-		}else if(action=="TUN LEF"){
-			TUN_LEF();
-		}else if(action=="TUN RIG"){
-			TUN_RIG();
-		}else if(action=="TUN BAC"){
-			TUN_BAC();
+		if(action=="TRA LEF"){
+			GO(0);
+		}else if(action=="TRA BOT"){
+			GO(1);
+		}else if(action=="TRA RIG"){
+			GO(2);
+		}else if(action=="TRA TOP"){
+			GO(3);
+		}else if(action=="MOV LEF"){
+			Turn(0);
+			GO(0);
+		}else if(action=="MOV BOT"){
+			Turn(1);
+			GO(1);
+		}else if(action=="MOV RIG"){
+			Turn(2);
+			GO(2);
+		}else if(action=="MOV TOP"){
+			Turn(3);
+			GO(3);
 		}else{
 			alert("输入有误，请重新输入");
 		}
 	}
 }
 btn();
-/*****左进函数*****/
-function GO_left(){
+/*****前进函数*****/
+function GO(n){
 	var cellTop=cell.offsetTop;
 	var cellLeft=cell.offsetLeft;
-	var absdeg=deg;
-	//如果角度是负值，取正         
-	while(absdeg<0){
-		absdeg=absdeg+360;
-	}
-	if(absdeg%360===0 && cellLeft<364){//左走
+	if(n===0 && cellLeft<364){//左走
 	     cell.style.left=cellLeft+52+"px";
-	}else if(absdeg%360===90 && cellTop<364){//下走
-		cell.style.top=cellTop+52+"px"; 
-	}else if(absdeg%360===180 && cellLeft>0){//右走
-		cell.style.left=cellLeft+(-52)+"px"; 
-	}else if(absdeg%360===270 && cellTop>0){//上走
+		 cell.style.transition="left 1000ms ease-in";
+	}else if(n===1 && cellTop<364){//下走
+		 cell.style.top=cellTop+52+"px"; 
+		 cell.style.transition="top 1000ms ease-in";
+	}else if(n===2 && cellLeft>0){//右走
+		 cell.style.left=cellLeft+(-52)+"px";
+		 cell.style.transition="left 1000ms ease-in";
+	}else if(n===3 && cellTop>0){//上走
 		cell.style.top=(cellTop-52)+"px"; 
-	}else{ return;}
-}
-/*****下前进函数*****/
-function GO_bottom(){
-	var cellTop=cell.offsetTop;
-	var cellLeft=cell.offsetLeft;
-	var absdeg=deg;
-	//如果角度是负值，取正         
-	while(absdeg<0){
-		absdeg=absdeg+360;
-	}
-	if(absdeg%360===0 && cellLeft<364){//左走
-	     cell.style.left=cellLeft+52+"px";
-	}else if(absdeg%360===90 && cellTop<364){//下走
-		cell.style.top=cellTop+52+"px"; 
-	}else if(absdeg%360===180 && cellLeft>0){//右走
-		cell.style.left=cellLeft+(-52)+"px"; 
-	}else if(absdeg%360===270 && cellTop>0){//上走
-		cell.style.top=(cellTop-52)+"px"; 
-	}else{ return;}
-}
-/*****右前进函数*****/
-function GO_right(){
-	var cellTop=cell.offsetTop;
-	var cellLeft=cell.offsetLeft;
-	var absdeg=deg;
-	//如果角度是负值，取正         
-	while(absdeg<0){
-		absdeg=absdeg+360;
-	}
-	if(absdeg%360===0 && cellLeft<364){//左走
-	     cell.style.left=cellLeft+52+"px";
-	}else if(absdeg%360===90 && cellTop<364){//下走
-		cell.style.top=cellTop+52+"px"; 
-	}else if(absdeg%360===180 && cellLeft>0){//右走
-		cell.style.left=cellLeft+(-52)+"px"; 
-	}else if(absdeg%360===270 && cellTop>0){//上走
-		cell.style.top=(cellTop-52)+"px"; 
-	}else{ return;}
-}
-/*****上前进函数*****/
-function GO_top(){
-	var cellTop=cell.offsetTop;
-	var cellLeft=cell.offsetLeft;
-	var absdeg=deg;
-	//如果角度是负值，取正         
-	while(absdeg<0){
-		absdeg=absdeg+360;
-	}
-	if(absdeg%360===0 && cellLeft<364){//左走
-	     cell.style.left=cellLeft+52+"px";
-	}else if(absdeg%360===90 && cellTop<364){//下走
-		cell.style.top=cellTop+52+"px"; 
-	}else if(absdeg%360===180 && cellLeft>0){//右走
-		cell.style.left=cellLeft+(-52)+"px"; 
-	}else if(absdeg%360===270 && cellTop>0){//上走
-		cell.style.top=(cellTop-52)+"px"; 
+	    cell.style.transition="top 1000ms ease-in";
 	}else{ return;}
 }
 
-/*****左转90函数*****/
-function TUN_LEF(){
-	deg=deg-90;
-	cell.style.transform="rotate("+deg+"deg)";
-	
+/*****左转函数*****/
+function Turn(t){
+switch(t)
+{ 		
+   case 1://转到下面
+        cell.style.webkitTransform="rotate("+90+"deg)";
+		cell.style.transform="rotate("+90+"deg)";
+		cell.style.transition="transform 1000ms ease-in";
+		cell.style.transition="-webkit-transform 1000ms ease-in";
+		break;
+   case 2://转到右边
+        cell.style.webkitTransform="rotate("+180+"deg)";
+		cell.style.transform="rotate("+180+"deg)";
+		cell.style.transition="transform 1000ms ease-in";
+		cell.style.transition="-webkit-transform 1000ms ease-in";
+		break;
+   case 3://转到上面
+        cell.style.webkitTransform="rotate("+270+"deg)";
+		cell.style.transform="rotate("+270+"deg)";
+		cell.style.transition="transform 1000ms ease-in";
+		cell.style.transition="-webkit-transform 1000ms ease-in";
+		break;
+   case 0://转到左边
+        cell.style.webkitTransform="rotate("+0+"deg)";
+		cell.style.transform="rotate("+0+"deg)";
+		cell.style.transition="transform 1000ms ease-in";
+		cell.style.transition="-webkit-transform 1000ms ease-in";
+		break;
+	default:
+		return;
 }
-/*****右转90函数*****/
-function TUN_RIG(){
-	deg=deg+90;
-	cell.style.transform="rotate("+deg+"deg)";
 }
-/*****右转180函数*****/
-function TUN_BAC(){
-	deg=deg+180;
-	cell.style.transform="rotate("+deg+"deg)";
-}
-
 </script>
 </body>
 </html>
