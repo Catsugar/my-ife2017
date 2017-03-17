@@ -24,3 +24,5 @@
 * 任务二十二：表单（一）单个表单项的检验 https://catsuger.github.io/my-ife2017/Task22/Task22.html
 * 任务二十三：表单（二）多个表单项的动态校验 https://catsuger.github.io/my-ife2017/Task23/Task23.html
 * 任务二十四：表单（三）联动https://catsuger.github.io/my-ife2017/Task24/Task24.html
+* 任务二十五：听指令的小方块（一）联动https://catsuger.github.io/my-ife2017/Task25/Task25.html
+* 任务二十六：听指令的小方块（二）联动https://catsuger.github.io/my-ife2017/Task26/Task26.html
