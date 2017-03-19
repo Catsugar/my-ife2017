@@ -18,7 +18,7 @@
 	right:10px;
 	top:0px;
 	bottom:0px;}
-.tablebox .up {
+.tablebox #up {
   width: 0;
   height: 0;
   overflow: hidden;
@@ -27,7 +27,7 @@
   border-style: dashed dashed solid dashed;
   margin-bottom:5px;
 }
-.tablebox .down {
+.tablebox #down {
   width: 0;
   height: 0;
   overflow: hidden;
