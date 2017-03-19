@@ -1,6 +1,28 @@
 /***全局变量*****/
-var table=document.getElementsByTagName("table")[0];
-/*****绑定按钮的事件*****/
+   var data = [
+
+        {"姓名": "小明", "语文": "80", "数学": "90", "英语": "70", "总分": "240"},
+
+        {"姓名": "小红", "语文": "100", "数学": "60", "英语": "90", "总分": "250"},
+
+        {"姓名": "小亮", "语文": "60", "数学": "100", "英语": "70", "总分": "230"},
+
+        {"姓名": "小米", "语文": "60", "数学": "50", "英语": "80", "总分": "190"}
+
+    ];
+	var table=document.getElementsByTagName("table")[0];
+	var tbody = document.getElementsByTagName("tbody")[0];
+/*****生成表格*****/
+function renew(){
+	for (var i = 0; i < data.length; i++) {
+		var tr=document.createElement("tr");
+		tr.innerHTML="<td>" + data[i].姓名 + "</td><td>" + data[i].语文 + "</td>" 
+	   +"<td>" + data[i].数学 + "</td><td>" + data[i].英语 + "</td>" 
+	   +"<td>" + data[i].总分 + "</td>";
+	   table.appendChild(tr);
+	}
+}
+/*****排序*****/
 function Sort() {
 	var sortopt=table.getElementsByClassName("sortopt");
 	for(var i=0;i<sortopt.length;i++){
@@ -58,6 +80,7 @@ function Sort() {
 		}
 	  }
 }
+renew();
 Sort();
 
 
