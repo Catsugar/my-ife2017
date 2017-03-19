@@ -14,34 +14,43 @@ body,li,ul{
    list-style:none;}
 .box{
 	margin:50px auto;
-	width:50%;
+	width:40%;
 	height:2000px;}
 h1{margin:20px auto;
    font-size:36px;
    text-align:center;
    padding-bottom:50px;}
-.btn{
+input{
 	border-radius:6px;
 	font-weight:bold;
     text-align:center;
-	width:80%;
-	margin:0 10%;
+	
 	height:40px;
-	font: 18px "微软雅黑";
+	font: 18px "微软雅黑";}
+.input{
+	margin:5% 0 5% 30px;
+	width:50%;}
+.btn{
+	margin:5% 0;
+	width:100%;
+	height:40px;
 	color:#FFF;
 	background-color:#06F;}
+
 </style>
 </head>
 <body>
 <div class="box">
     <h1>UI组件之浮出层</h1>
     <form>
+        请输入窗体的高<input name="height" type="text" id="floatheight" class="input"><br>
+        请输入窗体的宽<input name="width" type="text" id="floatwidth" class="input">
         <input name="btn" type="button" id="btn" class="btn" value="跳出浮出层">
     </form>
 </div>
 <!--------------浮出层------------------------->
-<div class="floatbox" id="floatbox" style="display:none">
-    <span>这是一个浮出层</span>
+<div class="floatbox" id="floatbox" style="display:none" >
+    <div>这是一个浮出层</div>
     <div>
        <input name="sure" type="button" id="sure"  value="确定">
        <input name="cancel" type="button" id="cancel"  value="取消">
@@ -59,8 +68,18 @@ function float() {
 	var cover=document.getElementById("cover");
 	var floatbox=document.getElementById("floatbox");
 	btn.onclick=function(){
-		floatbox.style.display="block";
-		cover.style.display="block";
+		var height=document.getElementById("floatheight").value;
+	    var width=document.getElementById("floatwidth").value;
+		if((height=="" || height==null) && (width=="" || width==null)){
+			alert("输入有误！");
+		}else{
+			floatbox.style.marginTop=(-height/2) +"px";
+			floatbox.style.marginLeft=(-width/2) +"px";
+			floatbox.style.width=width;
+			floatbox.style.height=height;
+			floatbox.style.display="block";
+			cover.style.display="block";
+		}
 	}
 	cancel.onclick=function(){
 		floatbox.style.display="none";

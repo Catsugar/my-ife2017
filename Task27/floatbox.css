@@ -9,12 +9,13 @@
 	top:50%;
 	margin:-125px -250px;
 	background-color:#666;
-	z-index:20;}
-.floatbox > span{
+	z-index:20;
+	font: 18px/50px "微软雅黑";}
+.floatbox > div:nth-child(1){
 	height:20%;
-	line-height:50px;
+	width:100%;
 	color:#FFF;}
-.floatbox > div{
+.floatbox > div:nth-child(2){
 	width:100%;
 	height:79.2%;
 	background:#fff;
