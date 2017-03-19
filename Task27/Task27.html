@@ -1,0 +1,82 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务六：UI组件之浮出层</title>
+<link type="text/css" href="floatbox.css" rel="stylesheet" />
+<style type="text/css">
+@charset "utf-8";
+body,li,ul{
+   font: 18px "微软雅黑";
+   margin: 0px;
+   padding: 0px;
+   color:#333;
+   list-style:none;}
+.box{
+	margin:50px auto;
+	width:50%;
+	height:2000px;}
+h1{margin:20px auto;
+   font-size:36px;
+   text-align:center;
+   padding-bottom:50px;}
+.btn{
+	border-radius:6px;
+	font-weight:bold;
+    text-align:center;
+	width:80%;
+	margin:0 10%;
+	height:40px;
+	font: 18px "微软雅黑";
+	color:#FFF;
+	background-color:#06F;}
+</style>
+</head>
+<body>
+<div class="box">
+    <h1>UI组件之浮出层</h1>
+    <form>
+        <input name="btn" type="button" id="btn" class="btn" value="跳出浮出层">
+    </form>
+</div>
+<!--------------浮出层------------------------->
+<div class="floatbox" id="floatbox" style="display:none">
+    <span>这是一个浮出层</span>
+    <div>
+       <input name="sure" type="button" id="sure"  value="确定">
+       <input name="cancel" type="button" id="cancel"  value="取消">
+       <p>这是一个浮出层</p>
+    </div>
+</div>
+<!------覆盖层------>
+<div class="cover" id="cover" style="display:none"></div>
+<script type="text/javascript">
+/*****绑定按钮的事件*****/
+function float() {
+	var btn=document.getElementById("btn");
+	var sure=document.getElementById("sure");
+	var cancel=document.getElementById("cancel");
+	var cover=document.getElementById("cover");
+	var floatbox=document.getElementById("floatbox");
+	btn.onclick=function(){
+		floatbox.style.display="block";
+		cover.style.display="block";
+	}
+	cancel.onclick=function(){
+		floatbox.style.display="none";
+		cover.style.display="none";
+	}
+	sure.onclick=function(){
+		floatbox.style.display="none";
+		cover.style.display="none";
+	}
+	cover.onclick=function(){
+		floatbox.style.display="none";
+		cover.style.display="none";
+	}
+
+}
+float();
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@charset "utf-8";
+body,li,ul{
+   font: 18px "微软雅黑";
+   margin: 0px;
+   padding: 0px;
+   color:#333;
+   list-style:none;}
+.box{
+	margin:50px auto;
+	width:50%;}
+.btn{
+	margin-top:20px;
+	border-radius:6px;
+	font-weight:bold;
+    text-align:center;
+	margin:10px 30px;
+	padding:5px 30px;
+	font: 18px "微软雅黑";
+	color:#FFF;
+	background-color:#000;
+	float:right;}

@@ -26,3 +26,5 @@
 * 任务二十四：表单（三）联动https://catsuger.github.io/my-ife2017/Task24/Task24.html
 * 任务二十五：听指令的小方块（一）联动https://catsuger.github.io/my-ife2017/Task25/Task25.html
 * 任务二十六：听指令的小方块（二）联动https://catsuger.github.io/my-ife2017/Task26/Task26.html
+* 任务二十七：UI组件之浮出层https://catsuger.github.io/my-ife2017/Task27/Task27.html
+* 任务二十八：UI组件之排序表格https://catsuger.github.io/my-ife2017/Task28/Task28.html
