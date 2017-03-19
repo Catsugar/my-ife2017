@@ -8,13 +8,18 @@ body,li,ul{
 .box{
 	margin:50px auto;
 	width:50%;}
-.info{
-	margin-top:20px;
+form > input{
+	border-radius:5px;
 	font-weight:bold;
     text-align:center;
-	margin:30px 0;
-	padding:5px 30px;
-	font: 18px "微软雅黑";
+	margin:30px 10px;
+	font: 18px "微软雅黑";}
+.input{
+	margin-top:50px;
+	width:90px;}
+.btn{
+	margin-top:10px;
+	padding:5px 20px;
 	color:#FFF;
 	background-color:#333;
 	float:right;}

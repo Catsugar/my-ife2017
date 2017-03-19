@@ -10,8 +10,35 @@
         {"姓名": "小米", "语文": "60", "数学": "50", "英语": "80", "总分": "190"}
 
     ];
+	var btn=document.getElementById("btn");
 	var table=document.getElementsByTagName("table")[0];
 	var tbody = document.getElementsByTagName("tbody")[0];
+/*****添加数据*****/
+function adddata(){
+  btn.onclick=function(){	
+	var name=document.getElementById("name").value;
+	var Chinese=parseInt(document.getElementById("Chinese").value);
+	var math=parseInt(document.getElementById("math").value);
+	var English=parseInt(document.getElementById("English").value);
+	var sum=Chinese+math+English;
+	if(name=="" || name==null ||  isNaN(Chinese) ||  isNaN(math) ||  isNaN(English)){
+	  alert("请正确输入值");
+	  return;
+	}else{
+	  reclear();
+	  data.push({"姓名": name, "语文": Chinese, "数学": math, "英语": English, "总分": sum});
+	  renew();
+	}
+	
+  }
+}
+/*****清空表格*****/
+function reclear(){
+	var length=table.getElementsByTagName("tr").length;
+	for (var i = 1; i <length; i++) {
+ 	    table.removeChild(table.lastChild);
+	}
+}
 /*****生成表格*****/
 function renew(){
 	for (var i = 0; i < data.length; i++) {
@@ -82,5 +109,6 @@ function Sort() {
 }
 renew();
 Sort();
+adddata();
 
 
