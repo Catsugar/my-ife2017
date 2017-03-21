@@ -1,10 +1,181 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
 <title>任务七：实现常见的技术产品官网的页面架构及样式布局</title>
-<link type="text/css" href="Task6.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="Task7.css" />
 </head>
 <body>
+<div id="container">
+<!-----------页头-------------------------->
+<header class="header" id="header">
+    <div class="header_left"> 
+    <a class="navbar-brand" href="#" ><img src="images/1.png"><span>新世界</span></a> 
+    </div>
+    <div class="header_right">
+      <ul>
+        <li><a href="#page3" style="color:#E7504D"><img src="images/2.png" class="icon1">登录</a></li>
+        <li><a href="#page3">关于我们</a></li> 
+        <li><a href="#page3">爱心社区</a></li>
+        <li><a href="#">项目介绍</a></li>
+        <li><a href="#">最新活动</a></li>
+        <li class="active"><a href="#page1" style="color:#E7504D">首页</a></li>
+      </ul>
+    </div>
+</header>
+<!-----------第一节-------------------------->
+<section class="section_one" id="section1">
+   <div class="cover1"></div>
+   <div class="section1_info">
+     <h1>Time of new life</h1>
+     <span>新时代，年轻的人们让我们一起<br>体验新生活，享受新生活</span>
+     <input type="button" name="button" value="开始体验">
+   </div>
+</section>
+<!-----------第二节-------------------------->
+<section class="section_two" id="section2">
+  <ul>
+   <li><img src="images/7.png"><div>打造全新世界观，让你更爱你的生活</div></li>
+   <li><img src="images/6.png"><div>丰富多彩的公益活动，发挥新世界的主人公意识</div></li>
+   <li><img src="images/4.png"><div>时尚的新理念，超前体验未知生活</div></li>
+   <li><img src="images/5.png"><div>完善的培养机制，培养全新世界观</div></li>
+ </ul>
+</section>
+<!-----------第三节-------------------------->
+<section class="section_three" id="section3">
+   <img src="images/8.png">
+   <h1>关于新世界，你不知道的还有什么？</h1>
+</section>
+<!-----------第四节-------------------------->
+<section class="section_four" id="section4">
+   <div class="cover2">
+   <div class="section4_info">
+      <h2>查找新世界活动信息</h2>
+      <span class="line linewhite"></span>
+      <h4 class="text">每个城市有不同的活动，请自主查询您所需要了解的城市。</h4>
+   </div>
+   <div class="section4_input">
+      <select name="国家" value="国家">
+              <option value="中国" selected>中国</option>
+              <option value="日本">日本</option>
+              <option value="韩国" >韩国</option>
+              <option value="美国">美国</option>
+      </select>
+      <select name="省份">
+              <option value="北京市" selected>北京市</option>
+              <option value="上海市">上海市</option>
+              <option value="广东省" >广东省</option>
+              <option value="浙江省">杭州市</option>
+      </select>
+      <select name="城市">
+              <option value="北京市" selected>北京市</option>
+              <option value="上海市">上海市</option>
+              <option value="guangzhou" >广州</option>
+              <option value="杭州市">深圳</option>
+      </select>
+      <input type="button" value="搜&nbsp;&nbsp;索">
+   </div>
+  </div>
+</section>
+<!-----------第五节-------------------------->
+<section class="section_five" id="section5">
+   <div><h3>北京活动</h3><a href="">社区大联盟</a></div>
+   <div><h2>上&nbsp;&nbsp;&nbsp;&nbsp;海&nbsp;&nbsp;&nbsp;&nbsp;活&nbsp;&nbsp;&nbsp;&nbsp;动</h2><a href="">夜上海新景观探索</a></div>
+   <div>
+     <h3>深圳活动</h3><a href="">全新海岸线观点站</a></div>
+   <div><h3>香港活动</h3><a href="">奢侈消费大放送</a></div>
+</section>
+<!-----------第六节-------------------------->
+<section class="section_six" id="section6">
+   <div class="section6_left">
+         <i></i>
+         <h2>新世界</h2>
+         <h1>TIME</h1>
+         <span>@新世界—北京<br>
+         2016.04.01</span>
+   </div>
+   <div class="section6_right">
+          <h2>新世界/<i>01</i></h2>
+          <p>新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界新世界呀新世界</p>
+          <div>
+          <input type="button" name="button" value="更多详情">          
+          <ul><li></li><li></li><li></li></ul>
+          </div>
+   </div>
+</section>
+<!-----------第7节-------------------------->
+<section class="section_seven" id="section7">
+   <div class="section7_right"><i></i></div>
+   <div class="section7_left">
+     <div class="left red">
+          <h2>新时代<br>关于爱生活的我们</h2>
+          <span class="line linewhite"></span>
+          <input type="button" name="button" value="查看更多">          
+     </div>
+     <div class="left white">
+          <h2>新时代<br>关于爱生活的我们</h2>
+          <span class="line linegrey" ></span>
+          <input type="button" name="button" value="查看更多">          
+     </div>
+   </div>
+</section>
+<!-----------第8节-------------------------->
+<section class="section_eight" id="section8">
+   <h1>成为我们的志愿者</h1>
+   <span class="line linered"></span>
+   <p>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情
+      <br>那就不要犹豫，快来加入我们，成为改变所有人生活的人
+   </p>
+   <div class="section8_bottom">
+      <div class="list">
+        <ul>
+          <li>
+          <h3>新世界志愿者协议</h3>
+          <p>加入新世界志愿者的人员必须遵守中华人民共和国的相关法律法规，并且本着平等自愿的原则……</p>
+          <span><a href="">more</a><span>
+        </li>
+          <li>
+          <h3>新世界志愿者权利</h3>
+          <p>新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在新世界活动的优先参与资格……</p>
+          <span><a href="">more</a></li>
+          <li>
+          <h3>更多条款</h3>
+          <p></p>
+          <span><a href="">more</a><span>
+        </li>
+        </ul>
+      </div>
+      <div class="tablebox">
+        <input type="text" name="name" class="row-2" placeholder="姓名">
+        <input type="text" name="year"  class="row-2" placeholder="年龄"><br>
+        <input type="text" name="phone"  class="row-2" placeholder="联系方式">
+        <input type="text" name="address"  class="row-2" placeholder="联系地址"><br>
+        <input type="text" name="des"  class="row-1" placeholder="请简单描述您梦想的生活："><br>
+        <input type="submit" name="sub" class="sub"  value="申请提交">
+      </div>
+   </div>
+</section>
+<!-----------页脚-------------------------->
+<footer class="footer" id="footer">
+  <div class="foottop">
+   <h2>联系我们</h2>
+   <p>为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯<br>
+   也可以通过以下任何方式关注我们动态</p>
+   <input type="text" name="text"  class="subtext" placeholder="someone@email.com"> 
+   <input type="submit" name="button" value="提&nbsp;&nbsp;交" class="subbtn">
+   <div class="iconbox">
+   <ul>
+   <li><a href=""></a></li>
+   <li><a href=""></a></li>
+   <li><a href=""></a></li>
+   <li><a href=""></a></li>
+   </ul>
+   </div>
+  </div>
+  <div class="footbottom">
+  <div>back to top</div>
+  </div> 
+</footer>
+</div>
 </body>
 </html>
