@@ -1,6 +1,6 @@
-﻿# my-ife2017#
-##开始刷题打怪##
-###小薇学院###
+﻿# my-ife2017
+## 开始刷题打怪
+### 小薇学院 
 * 任务一：零基础HTML编码    https://catsuger.github.io/my-ife2017/Task1/Task1.html
 * 任务二：零基础HTML及CSS编码（一）  https://catsuger.github.io/my-ife2017/Task2/Task2.html
 * 任务三：三栏布局  https://catsuger.github.io/my-ife2017/Task3/Task3.html
@@ -13,7 +13,7 @@
 * 任务十：Flexbox 布局练习 https://catsuger.github.io/my-ife2017/Task10/Task10.html
 * 任务十一：移动Web页面布局实践https://catsuger.github.io/my-ife2017/Task11/Task11.html
 * 任务十二：学习CSS 3的新特性https://catsuger.github.io/my-ife2017/Task12/Task12.html
-###斌斌学院###
+### 斌斌学院
 * 任务十三：零基础JavaScript编码（一） https://catsuger.github.io/my-ife2017/Task13/Task13.html
 * 任务十四：零基础JavaScript编码（二） https://catsuger.github.io/my-ife2017/Task14/Task14.html
 * 任务十五：零基础JavaScript编码（三） https://catsuger.github.io/my-ife2017/Task15/Task15.html
@@ -23,7 +23,7 @@
 * 任务十九：JavaScript和树（一） https://catsuger.github.io/my-ife2017/Task19/Task19.html
 * 任务二十：JavaScript和树（二） https://catsuger.github.io/my-ife2017/Task20/Task20.html
 * 任务二十一：JavaScript和树（三） https://catsuger.github.io/my-ife2017/Task21/Task21.html
-###耀耀学院###
+### 耀耀学院
 * 任务二十二：表单（一）单个表单项的检验 https://catsuger.github.io/my-ife2017/Task22/Task22.html
 * 任务二十三：表单（二）多个表单项的动态校验 https://catsuger.github.io/my-ife2017/Task23/Task23.html
 * 任务二十四：表单（三）联动https://catsuger.github.io/my-ife2017/Task24/Task24.html
@@ -31,5 +31,5 @@
 * 任务二十六：听指令的小方块（二）联动https://catsuger.github.io/my-ife2017/Task26/Task26.html
 * 任务二十七：UI组件之浮出层https://catsuger.github.io/my-ife2017/Task27/Task27.html
 * 任务二十八：UI组件之排序表格https://catsuger.github.io/my-ife2017/Task28/Task28.html
-###百度糯米学院###
+### 百度糯米学院
 * 任务二十九：有趣的鼠标悬浮模糊效果 https://catsuger.github.io/my-ife2017/Task29/Task29.html
