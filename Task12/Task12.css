@@ -45,8 +45,9 @@ li{list-style:none;}
 	height:200px;
 	width:500px;
 	border:1px solid #666;
-	background-color:#F90;
-	position:relative;}
+	background:none;
+	position:relative;
+	overflow:hidden;}
 .tip{
 	position:absolute;
 	right:0;
@@ -61,31 +62,36 @@ li{list-style:none;}
 	border:1px solid #666;
 	text-align:center;
 	line-height:40px;
-	font-weight:bold;}
-.bac{
+	font-weight:bold;
+	z-index:100;}
+.tip li > div{
 	height:200px;
 	width:500px;
 	background-color:#F6C;
 	position:absolute;
-	left:0px;
-	animation: move 2s linear 0s infinite alternate;
-    -webkit-animation:move 2s linear 0s infinite alternate;
-    -moz-animation: move 2s linear 0s infinite alternate;}
+	top:-158px;
+	left:-314px;
+	z-index:-10;}
+.tip li:hover{
+	border:1px solid #C00;
+	color:#C00;}
+.tip li:hover .bac,.tip li:active .bac{
+	
+    animation: move 2s linear 0s;
+    -webkit-animation:move 2s linear 0s;
+    -moz-animation: move 2s linear 0s;}
 @keyframes move
 {
-	0%   { left:-500px;}
-	50%  { left:-250px;}
-	100% {left:0px;}
+	0%   {z-index:-5; left:-814px;}
+	100% {z-index:-5;left:-314px;}
 }
 @-webkit-keyframes move
 {
-	0%   { left:-500px;}
-	50%  { left:-250px;}
-	100% {left:0px;}
+	0%   {z-index:-5; left:-814px;}
+	100% {z-index:-5; left:-314px;}
 }
 @-moz-keyframes move
 {
-	0%   { left:-500px;}
-	50%  { left:-250px;}
-	100% {left:0px;}
+	0%   { left:-814px;}
+	100% {left:-314px;}
 }
