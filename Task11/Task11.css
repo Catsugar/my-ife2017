@@ -64,7 +64,7 @@ li{list-style:none;}
 	width:100%;
 	background-color:#fff;
 	border-top:0.125rem solid #aaa;
-	padding:1rem 0;}
+	padding:4% 0;}
 .col li{
 	float:left;
 	width:33.0%;
@@ -78,7 +78,7 @@ li{list-style:none;}
 	display:block;
 	width:92%;
 	height:3.2rem;
-	margin-top:1rem;
+	margin-top:4%;
 	padding:4%;
 	background-color:#fff;}
 .tit h3{
@@ -115,7 +115,7 @@ li{list-style:none;}
 	text-align:center;}
 /****模块2*************************************/
 .module2{
-	padding:1rem 0;
+	padding:4% 0;
 	width:100%;
 	background-color:#fff;
 	position:relative;
@@ -135,14 +135,17 @@ li{list-style:none;}
 .module3{
 	clear:both;
 	width:100%;
-	background-color:#fff;}
+	background-color:#fff;
+	padding-bottom:4%;}
 .module3 h1{
 	line-height:3rem;
 	height:3rem;
 	font-size:1.375rem;
 	font-weight:bold;
 	padding-left:4%;}
-.module3 span{padding-left:4%;}
+.module3 span{
+	padding-left:4%;
+	}
 .module3 div{
 	width:100%;}
 .module3 li{
@@ -152,4 +155,6 @@ li{list-style:none;}
 .module3 img{
 	width:100%;}
 
-
+.footer{
+	width:100%;
+	height:6rem;}
