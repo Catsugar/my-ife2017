@@ -1,85 +1,124 @@
 @charset "utf-8";
+body,div,span,ul,li,a,h1,h2,h3,h4,input,select,table{
+	padding:0;
+	margin:0;}
 body{
-	background-position:center;
-	background-size:cover;}
+	background-color:#CCC;}
 .box{
-	width:40%;
-	height:40%;
-	position:absolute;
-	top:20%;
-	left:25%;
+	width:550px;
+	height:330px;
+	margin:100px auto;
 	text-align:center;
 	font-family:"微软雅黑";
-	padding:5%;
 	font-size:24px;
-	border:8px solid #FFF;
-       -moz-border-top-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
-       -moz-border-right-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
-       -moz-border-bottom-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
-       -moz-border-left-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
-	   z-index:10;
+	z-index:10;
+	box-shadow:5px 5px 10px #333333;
+	position:relative;}
+.box h1{
+	font-size:2.8rem;
+	line-height:5rem;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     /***添加标题1颜色*****/
+	 background-size: 200% 100%;
+	 background-image:-webkit-linear-gradient(left,#f00,#ff0 10%,#0f0 20%,#0ff 30%,#00f 40%,#f00 50%,#ff0 60%,#0f0 70%,#0ff 80%,#00f 90%,#f00);
+	 background-image:-moz-linear-gradient(left,#f00,#ff0 10%,#0f0 20%,#0ff 30%,#00f 40%,#f00 50%,#ff0 60%,#0f0 70%,#0ff 80%,#00f 90%,#f00);
+	 background-image:-o-linear-gradient(left,#f00,#ff0 10%,#0f0 20%,#0ff 30%,#00f 40%,#f00 50%,#ff0 60%,#0f0 70%,#0ff 80%,#00f 90%,#f00);
+	animation:h1_change 5s linear infinite;
+    -webkit-animation:h1_change 5s linear infinite;
+    -moz-animation: h1_change 5s linear infinite;
+	opacity:0;}
+.box h3{
+	
+	 font-size:2rem;
+	 line-height:4rem;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     /***添加标题2颜色*****/
+	 animation:h3_change 2s linear infinite;
+    -webkit-animation:h3_change 2s linear infinite;
+    -moz-animation: h3_change 2s linear infinite;
+	opacity:0;
 	}
-/*****防止窗口太小的时候，字体益处****/
-@media all and (max-width:700px){
-.box h1{font-size:36px;}
-.box h3{font-size:20px;}
-}
+/*****边框展开****/
+.bd{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -120px 0 0 -200px;
+        width: 400px;
+        height: 240px;
+        text-align: center;
+        z-index: 10;
+		}
+.bd:hover{
+	   opacity:1;
+	   transition: all 1s;
+	   }
+.bd:hover h1,.bd:hover h3{
+	   opacity:1;
+	   transition: all 1s;
+	   }
+
+.bd::before, .bd::after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        box-sizing: border-box;
+        transition: all 1.5s;}
+.bd::before {
+        top: 0;
+        left: 50%;
+        height: 240px;
+        border-top: 10px solid white;
+        border-bottom: 10px solid white;}
+.bd::after {
+        top: 50%;
+        left: 0;
+        width: 400px;
+        border-left: 10px solid white;
+        border-right: 10px solid white; }
+.bd:hover::before {
+        top: 0;
+        left: 0;
+        width: 400px;} 
+.bd:hover::after {
+        top: 0;
+        left: 0;
+        height: 240px; }
+/*******模糊效果*******/
 .cover{
 	position:absolute;
-	width:100%;
-	height:100%;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
 	background: url(http://wx4.sinaimg.cn/large/b64d25bfgy1fdsdlifur6j21hc0u07c0.jpg);
 	background-size:cover;
-	z-index:1;}
-.cover:hover{
-/**模糊效果***/
+	z-index:-10;}
+.box:hover .cover,.box:active .cover{
 	filter: url(blur.svg#blur);
     -webkit-filter: blur(10px);
        -moz-filter: blur(10px);
         -ms-filter: blur(10px);    
             filter: blur(10px);}
-.box h1{font-size:3rem;
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-/***添加标题1颜色*****/
-	animation:h1_change 3s linear infinite;
-    -webkit-animation:h1_change 3s linear infinite;
-    -moz-animation: h1_change 3s linear infinite;}
-.box h3{font-size:2rem;
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-/***添加标题2颜色*****/
-	 animation:h3_change 2s linear infinite;
-    -webkit-animation:h3_change 2s linear infinite;
-    -moz-animation: h3_change 2s linear infinite;}
-
 /******渐变色动画*********/
 @keyframes h1_change
 {
-	0%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
-	20%  {background:-webkit-linear-gradient(left,#ff0,#0f0 20%,#0ff 40%,#00f 60%,#f00 80%,#ff0);}
-	40%  {background:-webkit-linear-gradient(left,#0f0,#0ff 20%,#00f 40%,#f00 60%,#ff0 80%,#0f0);}
-	60%  {background:-webkit-linear-gradient(left,#0ff,#00f 20%,#f00 40%,#ff0 60%,#0f0 80%,#0ff);}
-	80% {background:-webkit-linear-gradient(left,#00f,#f00 20%,#ff0 40%,#0f0 60%,#0ff 80%,#00f);}
-	100%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+  0% { background-position: 0 0;}
+  100% {background-position: -100% 0; }
 }
 @-moz-keyframes h1_change
 {
-	0%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
-	20%  {background:-webkit-linear-gradient(left,#ff0,#0f0 20%,#0ff 40%,#00f 60%,#f00 80%,#ff0);}
-	40%  {background:-webkit-linear-gradient(left,#0f0,#0ff 20%,#00f 40%,#f00 60%,#ff0 80%,#0f0);}
-	60%  {background:-webkit-linear-gradient(left,#0ff,#00f 20%,#f00 40%,#ff0 60%,#0f0 80%,#0ff);}
-	80% {background:-webkit-linear-gradient(left,#00f,#f00 20%,#ff0 40%,#0f0 60%,#0ff 80%,#00f);}
-	100%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+  0% { background-position: 0 0;}
+  100% {background-position: -100% 0; }
 }
 @-webkit-keyframes h1_change
 {
-	0%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
-	20%  {background:-webkit-linear-gradient(left,#ff0,#0f0 20%,#0ff 40%,#00f 60%,#f00 80%,#ff0);}
-	40%  {background:-webkit-linear-gradient(left,#0f0,#0ff 20%,#00f 40%,#f00 60%,#ff0 80%,#0f0);}
-	60%  {background:-webkit-linear-gradient(left,#0ff,#00f 20%,#f00 40%,#ff0 60%,#0f0 80%,#0ff);}
-	80% {background:-webkit-linear-gradient(left,#00f,#f00 20%,#ff0 40%,#0f0 60%,#0ff 80%,#00f);}
-	100%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+  0% { background-position: 0 0;}
+  100% {background-position: -100% 0; }
 }
 /******h3动画*********/
 @keyframes h3_change
