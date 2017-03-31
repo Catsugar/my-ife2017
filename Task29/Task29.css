@@ -1,0 +1,114 @@
+@charset "utf-8";
+body{
+	background: url(http://wx4.sinaimg.cn/large/b64d25bfgy1fdsdlifur6j21hc0u07c0.jpg) fixed;
+	background-position:center;
+	background-size:cover;}
+.box{
+	width:40%;
+	height:40%;
+	position:absolute;
+	top:20%;
+	left:25%;
+	text-align:center;
+	font-family:"微软雅黑";
+	padding:5%;
+	font-size:24px;
+	
+	border:8px solid #000;
+       -moz-border-top-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
+       -moz-border-right-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
+       -moz-border-bottom-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
+       -moz-border-left-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
+	/*border:5px solid -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1) 50%,rgba(255,255,255,0));*/
+	}
+/*****防止窗口太小的时候，字体益处****/
+@media all and (max-width:700px){
+.box h1{font-size:36px;}
+.box h3{font-size:20px;}
+}
+.cover{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-color:rgba(255,255,0,0.2);
+	z-index:1;}
+.box:hover{
+/**模糊效果***/
+	filter: url(blur.svg#blur);
+    -webkit-filter: blur(10px);
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);}
+.box h1{font-size:3rem;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+/***添加标题1颜色*****/
+	animation:h1_change 3s linear infinite;
+    -webkit-animation:h1_change 3s linear infinite;
+    -moz-animation: h1_change 3s linear infinite;}
+.box h3{font-size:2rem;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+/***添加标题2颜色*****/
+	 animation:h3_change 2s linear infinite;
+    -webkit-animation:h3_change 2s linear infinite;
+    -moz-animation: h3_change 2s linear infinite;}
+
+/******渐变色动画*********/
+@keyframes h1_change
+{
+	0%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+	20%  {background:-webkit-linear-gradient(left,#ff0,#0f0 20%,#0ff 40%,#00f 60%,#f00 80%,#ff0);}
+	40%  {background:-webkit-linear-gradient(left,#0f0,#0ff 20%,#00f 40%,#f00 60%,#ff0 80%,#0f0);}
+	60%  {background:-webkit-linear-gradient(left,#0ff,#00f 20%,#f00 40%,#ff0 60%,#0f0 80%,#0ff);}
+	80% {background:-webkit-linear-gradient(left,#00f,#f00 20%,#ff0 40%,#0f0 60%,#0ff 80%,#00f);}
+	100%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+}
+@-moz-keyframes h1_change
+{
+	0%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+	20%  {background:-webkit-linear-gradient(left,#ff0,#0f0 20%,#0ff 40%,#00f 60%,#f00 80%,#ff0);}
+	40%  {background:-webkit-linear-gradient(left,#0f0,#0ff 20%,#00f 40%,#f00 60%,#ff0 80%,#0f0);}
+	60%  {background:-webkit-linear-gradient(left,#0ff,#00f 20%,#f00 40%,#ff0 60%,#0f0 80%,#0ff);}
+	80% {background:-webkit-linear-gradient(left,#00f,#f00 20%,#ff0 40%,#0f0 60%,#0ff 80%,#00f);}
+	100%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+}
+@-webkit-keyframes h1_change
+{
+	0%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+	20%  {background:-webkit-linear-gradient(left,#ff0,#0f0 20%,#0ff 40%,#00f 60%,#f00 80%,#ff0);}
+	40%  {background:-webkit-linear-gradient(left,#0f0,#0ff 20%,#00f 40%,#f00 60%,#ff0 80%,#0f0);}
+	60%  {background:-webkit-linear-gradient(left,#0ff,#00f 20%,#f00 40%,#ff0 60%,#0f0 80%,#0ff);}
+	80% {background:-webkit-linear-gradient(left,#00f,#f00 20%,#ff0 40%,#0f0 60%,#0ff 80%,#00f);}
+	100%   {background:-webkit-linear-gradient(left,#f00,#ff0 20%,#0f0 40%,#0ff 60%,#00f 80%,#f00);}
+}
+/******h3动画*********/
+@keyframes h3_change
+{
+	0%   {background:-webkit-linear-gradient(top,#060,#0F0);}
+	25%  {background:-webkit-linear-gradient(top,#30F,#39F);}
+	50%  {background:-webkit-linear-gradient(top,#060,#0F0);}
+	75%  {background:-webkit-linear-gradient(top,#30F,#39F);}
+	100% {background:-webkit-linear-gradient(top,#060,#0F0);}
+}
+@-moz-keyframes h3_change
+{
+	0%   {background:-webkit-linear-gradient(top,#060,#0F0);}
+	25%  {background:-webkit-linear-gradient(top,#30F,#39F);}
+	50%  {background:-webkit-linear-gradient(top,#060,#0F0);}
+	75%  {background:-webkit-linear-gradient(top,#30F,#39F);}
+	100% {background:-webkit-linear-gradient(top,#060,#0F0);}
+}
+@-webkit-keyframes h3_change
+{
+	0%   {background:-webkit-linear-gradient(top,#060,#0F0);}
+	25%  {background:-webkit-linear-gradient(top,#30F,#39F);}
+	50%  {background:-webkit-linear-gradient(top,#060,#0F0);}
+	75%  {background:-webkit-linear-gradient(top,#30F,#39F);}
+	100% {background:-webkit-linear-gradient(top,#060,#0F0);}
+
+}
+
+
