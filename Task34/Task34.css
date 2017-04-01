@@ -37,7 +37,8 @@ input{display: block;
    font-weight: 700;}
 .checkBox_cl:checked+label::after,.radioBox_cl:checked+label::after{
   margin: auto;
-  content: '√';
+content: '\2714';
+
   color: #d73d32;
   width:8px;
   height:8px;
