@@ -1,0 +1,56 @@
+@charset "utf-8";
+body,div,span,ul,li,a,h1,h2,h3,h4,input,select,table{
+	padding:0;
+	margin:0;}
+body{
+	font: 14px/24px "微软雅黑"；}
+/*********以上是预设********/
+input{display: block;
+	vertical-align:central;}
+.checkBox_bg,.radioBox_bg,.checkBox_cl,.radioBox_cl{
+    display: none;}
+/*********使用背景图实现********/
+.checkBox_bg+label,.radioBox_bg+label{
+  width: 16px;
+  height:16px;
+  border:none;
+  display: block;
+  background:url('bg.png') no-repeat;}
+.checkBox_bg+label{
+  background-position:-25px -32px;}
+.radioBox_bg+label{
+  background-position: -24px -10px;}
+.checkBox_bg:checked+label{
+  background-position: -60px -32px;}
+.radioBox_bg:checked+label{
+  background-position: -59px -10px;}
+
+/*********使用伪类实现********/
+.checkBox_cl+label,.radioBox_cl+label{
+  width:14px;
+  height: 14px;
+  border:1px solid #d9d9d9;
+  display: -webkit-flex;
+  display:flex;}
+.checkBox_cl:checked+label,.radioBox_cl:checked+label{
+   border:1px solid #d73d32;
+   font-weight: 700;}
+.checkBox_cl:checked+label::after,.radioBox_cl:checked+label::after{
+  margin: auto;
+  content: '√';
+  color: #d73d32;
+  width:8px;
+  height:8px;
+  line-height: 8px;
+  text-align: center;
+  font-size: 12px;}
+.radioBox_cl+label{
+  border-radius: 50%;}
+.radioBox_cl:checked+label::after{
+  border-radius: 50%;
+  width:6px;
+  height:6px;
+  line-height: 6px;
+  content: ' ';
+  background: #d73d32;
+}

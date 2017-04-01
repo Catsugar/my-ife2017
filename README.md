@@ -33,3 +33,4 @@
 * 任务二十八：UI组件之排序表格https://catsuger.github.io/my-ife2017/Task28/Task28.html
 ### 百度糯米学院
 * 任务二十九：有趣的鼠标悬浮模糊效果 https://catsuger.github.io/my-ife2017/Task29/Task29.html
+* 任务三十四：自定义checkbox， radio样式 https://catsuger.github.io/my-ife2017/Task34/Task34.html
