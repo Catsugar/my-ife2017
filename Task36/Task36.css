@@ -1,0 +1,36 @@
+@charset "utf-8";
+body,div,span,ul,li,a,h2,h3,h4,input,select,table{
+	padding:0;
+	margin:0;
+	list-style:none;}
+body{
+	font: 14px/24px "微软雅黑";}
+h1{
+	text-align:center;
+	margin-top:30px;}
+a{text-decoration:none;}
+/*********************以上是预设*****************************/
+.btn{
+	font:bold 20px/30px "微软雅黑";
+	padding:20px;
+	width:20%;
+	margin:30px 40%;
+	text-align:center;
+	box-shadow:#36F 0px 0px 5px;
+	color:#36F;
+	position:relative;
+	border-radius:5px;}
+.btn a{color:#36F;}
+.menu{	
+	border:1px solid #999;
+	background-color:rgba(204,204,204,0.3);
+	width:200px;
+	box-shadow:rgba(0,102,204,0.3) 5px 5px 3px;}
+.menu a{
+	font: 14px/30px "微软雅黑";
+	color:#666;
+	margin-left:20px;
+	width:100%;}
+.menu hr{
+	width:80%;	
+}

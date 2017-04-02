@@ -3,9 +3,13 @@ body,div,span,ul,li,a,h1,h2,h3,h4,input,select,table{
 	padding:0;
 	margin:0;}
 body{
-	font: 14px/24px "微软雅黑"；}
+	font: 14px/24px "微软雅黑";}
+.box{	width:20%;
+	margin:100px 40%;
+	text-align:center;
+}
 /*********以上是预设********/
-input{display: block;
+input,label{
 	vertical-align:central;}
 .checkBox_bg,.radioBox_bg,.checkBox_cl,.radioBox_cl{
     display: none;}
@@ -14,7 +18,7 @@ input{display: block;
   width: 16px;
   height:16px;
   border:none;
-  display: block;
+  display:inline-block;
   background:url('bg.png') no-repeat;}
 .checkBox_bg+label{
   background-position:-25px -32px;}
@@ -26,19 +30,30 @@ input{display: block;
   background-position: -59px -10px;}
 
 /*********使用伪类实现********/
+.cl{
+	display: -webkit-flex;
+  display:flex;
+   justify-content:space-between;
+   align-items:space-between;
+   width:14%;
+   margin:0 43%;}
+.label1{
+	display:inline-block;}
 .checkBox_cl+label,.radioBox_cl+label{
   width:14px;
   height: 14px;
   border:1px solid #d9d9d9;
   display: -webkit-flex;
-  display:flex;}
+  display:flex;
+   justify-content:space-between;
+   align-items:space-between;
+}
 .checkBox_cl:checked+label,.radioBox_cl:checked+label{
    border:1px solid #d73d32;
    font-weight: 700;}
 .checkBox_cl:checked+label::after,.radioBox_cl:checked+label::after{
   margin: auto;
-content: '\2714';
-
+  content: '\2714';
   color: #d73d32;
   width:8px;
   height:8px;

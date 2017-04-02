@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>自定义网页右键菜单</title>
+<link type="text/css" href="Task36.css" rel="stylesheet" />
+</head>
+<body>
+<h1>自定义网页右键菜单</h1>
+<div class="btn" id="btn"><a href="">右击我</a></div>
+<div class="menu" id="menu">
+      <ul>
+        <li><a href="">红烧狮子头</a></li>
+        <li><a href="">猪肉炖粉条</a></li>
+        <li><a href="">麻婆豆腐</a></li>
+        <hr>
+        <li><a href="">东坡肉</a></li>
+        <li><a href="">龙井虾仁</a></li>
+        <hr>
+        <li><a href="">佛跳墙</a></li>
+        <li><a href="">酸菜鱼</a></li>
+        <li><a href="">花甲粉丝</a></li>
+        <li><a href="">年糕炒蟹脚</a></li>
+      </ul>
+</div>
+<script type="text/javascript">
+
+function btn() {
+  document.getElementById("btn").oncontextmenu=function(){
+	  alert("5555555555555");
+	  var oEvent=ev||event;
+	  
+	  
+  
+  };
+}
+btn();
+</script>
+
+
+</body>
+</html>
