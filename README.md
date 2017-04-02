@@ -34,3 +34,4 @@
 ### 百度糯米学院
 * 任务二十九：有趣的鼠标悬浮模糊效果 https://catsuger.github.io/my-ife2017/Task29/Task29.html
 * 任务三十四：自定义checkbox， radio样式 https://catsuger.github.io/my-ife2017/Task34/Task34.html
+* 任务三十六：自定义网页右键菜单 https://catsuger.github.io/my-ife2017/Task36/Task36.html

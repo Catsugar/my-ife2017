@@ -27,43 +27,26 @@
 var menu=document.getElementById("menu");
 
 function btn() {
-  //阻止事件冒泡
-  document.getElementById("btn").addEventListener('oncontextmenu',function(e){e.stopPropagation()},false);//阻止冒泡
-  //单击窗口，菜单消失
-  window.onclick=function(){
-    menu.style.display="none";
-	menu.style.left="";
-	menu.style.top="";
-	menu.style.right="";
-	menu.style.bottom="";
-  }
   document.getElementById("btn").oncontextmenu=function(){
-	  event.preventDefault ? event.preventDefault():(event.returnValue = false);
-	  //初始化
-	  menu.style.display="none";
-	  menu.style.left="";
-	  menu.style.top="";
-	  menu.style.right="";
-	  menu.style.bottom="";
-	
 	  var e=event||window.event;
 	  var eX=e.clientX;
 	  var eY=e.clientY;
 	  var winW=document.body.clientWidth;
 	  var winH=document.body.clientHeight;
 	  menu.style.display="block";
+      
 	  menu.style.left=eX+"px";
 	  menu.style.display="block";
 	  var menuW=menu.offsetWidth;
 	  var menuH=menu.offsetHeight;
 	  if(eX+menuW>winW){
-		  menu.style.right=(winW-eX)+"px";
+		  menu.style.left=eX+"px";
 	  }else{
-		  menu.style.left=eX+"px";}
+		  menu.style.right=eX+"px";}
       if(eY+menuH>winH){
-		  menu.style.bottom=(winH-eY)+"px";
+		  menu.style.top=eY+"px";
 	  }else{
-		  menu.style.top=eY+"px";} 
+		  menu.style.bottom=eY+"px";} 
   }
 }
 btn();

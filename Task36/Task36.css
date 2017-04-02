@@ -12,25 +12,34 @@ a{text-decoration:none;}
 /*********************以上是预设*****************************/
 .btn{
 	font:bold 20px/30px "微软雅黑";
-	padding:20px;
-	width:20%;
-	margin:30px 40%;
+	width:80%;
+	height:80%;
+	margin:30px 10%;
 	text-align:center;
-	box-shadow:#36F 0px 0px 5px;
-	color:#36F;
+	box-shadow:#333 0px 0px 5px;
+	
 	position:relative;
-	border-radius:5px;}
-.btn a{color:#36F;}
+	border-radius:5px;
+	background-color:rgba(255,102,102,0.6);}
+.btn a{color:#fff;}
 .menu{	
 	border:1px solid #999;
-	background-color:rgba(204,204,204,0.3);
+	background-color:rgba(204,204,204,0.8);
 	width:200px;
-	box-shadow:rgba(0,102,204,0.3) 5px 5px 3px;}
+	height:310px;
+	box-shadow:rgba(102,102,102,0.3) 5px 5px 3px;
+	position:absolute;
+	display:none;}
 .menu a{
 	font: 14px/30px "微软雅黑";
 	color:#666;
 	margin-left:20px;
 	width:100%;}
+.menu li:hover{
+	background-color:rgba(120,120,120,0.8);}
+.menu li:hover a{
+	color:#fff;
+	font-weight:bold;}
 .menu hr{
 	width:80%;	
 }
