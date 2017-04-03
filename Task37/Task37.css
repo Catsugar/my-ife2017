@@ -4,7 +4,8 @@ body,div,span,ul,li,a,h2,h3,h4,input,select,table{
 	margin:0;
 	list-style:none;}
 body{
-	font: 14px/24px "微软雅黑";}
+	font: 14px/24px "微软雅黑";
+	color:#666;}
 h1{
 	text-align:center;
 	margin-top:30px;}
@@ -48,3 +49,5 @@ input{
 	text-decoration:underline;}
 .title h3 a:hover{
 	text-decoration:underline;}
+.title h3 a{
+	color:#666;}
