@@ -1,0 +1,50 @@
+@charset "utf-8";
+body,div,span,ul,li,a,h2,h3,h4,input,select,table{
+	padding:0;
+	margin:0;
+	list-style:none;}
+body{
+	font: 14px/24px "微软雅黑";}
+h1{
+	text-align:center;
+	margin-top:30px;}
+a{text-decoration:none;}
+/*********************以上是预设*****************************/
+.Collapse{
+	width:40%;
+	margin:20px 30%;}
+.title{
+	width:100%;
+	border:1px solid #aaa;
+	border-radius:5px;
+}
+.title h3{
+	width:100%;
+	background-image:-webkit-linear-gradient(top,rgb(220,220,220),rgb(242,242,242));
+	padding:10px 0;
+	text-indent:1em;}
+.content{
+	width:100%;
+	background-color:#FFF;
+	border-top:1px solid #aaa;
+	transition: all 2s;
+}
+.content p{padding-left:1em;}
+/*********************实现切换效果*****************************/
+input{
+	display:none;}
+.op+label .content{
+	display:none;
+	height:0px;
+	transition: all 2s;
+}
+.op:checked+label .content{
+	display:block;
+	height:auto;
+	transition: all 2s;}
+.op+label .title h3{
+	text-decoration:none;}
+.op:checked+label .title h3{
+	text-decoration:underline;}
+.title h3 a:hover{
+	text-decoration:underline;}
