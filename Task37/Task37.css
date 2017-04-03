@@ -28,21 +28,16 @@ a{text-decoration:none;}
 	width:100%;
 	background-color:#FFF;
 	border-top:1px solid #aaa;
-	transition: all 2s;
-}
+    overflow: hidden;
+    height:0;
+    transition: height .5s;}
 .content p{padding-left:1em;}
 /*********************实现切换效果*****************************/
 input{
 	display:none;}
-.op+label .content{
-	display:none;
-	height:0px;
-	transition: all 2s;
-}
 .op:checked+label .content{
 	display:block;
-	height:auto;
-	transition: all 2s;}
+	height:280px;}
 .op+label .title h3{
 	text-decoration:none;}
 .op:checked+label .title h3{
