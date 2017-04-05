@@ -36,3 +36,5 @@
 * 任务三十四：自定义checkbox， radio样式 https://catsuger.github.io/my-ife2017/Task34/Task34.html
 * 任务三十六：自定义网页右键菜单 https://catsuger.github.io/my-ife2017/Task36/Task36.html
 * 任务三十七：使用CSS实现折叠面板 https://catsuger.github.io/my-ife2017/Task37/Task37.html
+* 任务三十八：正则表达式之入门 https://catsuger.github.io/my-ife2017/Task38/Task38.html
+* 任务三十九：正则表达式之简易markdown文件解析器 https://catsuger.github.io/my-ife2017/Task39/Task39.html

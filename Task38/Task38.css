@@ -1,0 +1,22 @@
+@charset "utf-8";
+body,div,span,ul,li,a,h2,h3,h4,input,select,table{
+	padding:0;
+	margin:0;
+	list-style:none;}
+body{
+	font: 14px/24px "微软雅黑";
+	color:#666;}
+h1{
+	text-align:center;
+	margin-top:30px;}
+a{text-decoration:none;}
+h3{margin-left:20PX;}
+/*********************以上是预设*****************************/
+.value{
+	width:200px;
+	height:30px;
+	margin-left:20PX;}
+.button{
+	width:60px;
+	height:30px;
+	font: 14px/30px "微软雅黑";}

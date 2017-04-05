@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>正则表达式之简易markdown文件解析器</title>
+<link type="text/css" href="Task39.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+<div class="edit" id="edit">
+  <textarea   style="border:0;overflow:auto" name="description"  >这是编辑区，请输入：</textarea>
+</div>
+<div class="show" id="show">
+  <div class="showbox" id="showbox">fsdftewrtwetr</div>
+</div>
+</div>
+<script type="text/javascript">
+function btn() {
+  document.getElementById("button-1").onclick=function(){
+	  var reg1 =/0?(13|15|18)\d{9}$/;
+	  var value1=document.getElementById("value-1").value;
+	  if(value1.match(reg1)===null || value1.length!==11){
+		  alert("不是手机号码。");}
+	  else{
+		  alert("是手机号码。");}
+  
+  }
+  document.getElementById("button-2").onclick=function(){
+	  var reg2=/\b([a-zA-Z]+)\s+\1\b/g;
+	  var value2=document.getElementById("value-2").value;
+	  if(value2.match(reg2)===null){
+		  alert("没有相邻重复单词");}
+	  else{
+		  alert("有相邻重复单词");}
+  }
+}
+btn();
+</script>
+</body>
+</html>
