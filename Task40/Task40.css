@@ -1,0 +1,27 @@
+@charset "utf-8";
+body,div,span,ul,li,a,h1,h2,h3,h4,input,select,table{
+	padding:0;
+	margin:0;
+	list-style:none;
+	text-align:center}
+body{
+	font: 16px/24px "微软雅黑";
+	color:#333;
+	background-color:#FFF;}
+/*********************以上是预设*****************************/
+.out{
+	width:200px;
+	height:200px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-100px;
+	margin-left:-100px;
+	border-radius:50%;
+	border:10px solid #F36;}
+.circle{
+	width:140px;
+	height:140px;
+	border-radius:50%;
+	margin:30px;
+	background-color:#F36;}

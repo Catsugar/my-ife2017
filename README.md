@@ -38,3 +38,5 @@
 * 任务三十七：使用CSS实现折叠面板 https://catsuger.github.io/my-ife2017/Task37/Task37.html
 * 任务三十八：正则表达式之入门 https://catsuger.github.io/my-ife2017/Task38/Task38.html
 * 任务三十九：正则表达式之简易markdown文件解析器 https://catsuger.github.io/my-ife2017/Task39/Task39.html
+* 任务四十：CSS3饼状loading效果 https://catsuger.github.io/my-ife2017/Task40/Task40.html
+* 任务四十一：CSS3实现3D 轮播图 https://catsuger.github.io/my-ife2017/Task41/Task41.html

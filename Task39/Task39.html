@@ -7,31 +7,45 @@
 </head>
 <body>
 <div class="container">
-<div class="edit" id="edit">
-  <textarea   style="border:0;overflow:auto" name="description"  >这是编辑区，请输入：</textarea>
+<div class="edit">
+  <textarea   style="border:0;overflow:auto" name="edit"  id="edit" >
+  这是编辑区，请输入：
+  # 一级标题
+  ## 二级标题
+  ### 三级标题
+  #### 四级标题
+  ##### 五级标题
+  * 无序列表1
+  * 无序列表2
+  * 无序列表3
+  1. 有序列表1
+  2. 有序列表2
+  3. 有序列表3
+  > 这是一个引用
+  </textarea>
 </div>
 <div class="show" id="show">
-  <div class="showbox" id="showbox">fsdftewrtwetr</div>
+  <div class="showbox" id="showbox"></div>
 </div>
 </div>
 <script type="text/javascript">
 function btn() {
-  document.getElementById("button-1").onclick=function(){
-	  var reg1 =/0?(13|15|18)\d{9}$/;
-	  var value1=document.getElementById("value-1").value;
-	  if(value1.match(reg1)===null || value1.length!==11){
-		  alert("不是手机号码。");}
-	  else{
-		  alert("是手机号码。");}
-  
-  }
-  document.getElementById("button-2").onclick=function(){
-	  var reg2=/\b([a-zA-Z]+)\s+\1\b/g;
-	  var value2=document.getElementById("value-2").value;
-	  if(value2.match(reg2)===null){
-		  alert("没有相邻重复单词");}
-	  else{
-		  alert("有相邻重复单词");}
+  document.getElementById("edit").oninput=function(){
+	  var arr=document.getElementById("edit").value.split(/\n/g);
+	  var value=arr.join("<br>");  
+	  value=value.replace(/#{5}\s?([^<br>#]+)<br>/g,"<h5>$1</h5>");//标题5
+	  value=value.replace(/#{4}\s?([^<br>#]+)<br>/g,"<h4>$1</h4>");//标题4
+	  value=value.replace(/#{3}\s?([^<br>#]+)<br>/g,"<h3>$1</h3>");//标题3
+	  value=value.replace(/##\s?([^<br>#]+)<br>/g,"<h2>$1</h2>");//标题2
+	  value=value.replace(/#\s?([^<br>#]+)<br>/g,"<h1>$1</h1>");//标题1
+	  value=value.replace(/\*\s([^<br>]+)<br>/g,"</ol><li>$1</li>");//无序列表
+	  value=value.replace(/1\.\s([^<br>]+)<br>/g,"</ol><ol><li>$1</li>");//有序列表
+	  
+	  
+	  value=value.replace(/\d\.\s([^<br>]+)<br>/g,"<li>$1</li>");//有序列表
+      value=value.replace(/>\s([^<br>]+)<br>/g,"<div class='y'>$1</div>");//引用
+	  console.log(value);
+  document.getElementById("showbox").innerHTML=value;
   }
 }
 btn();
