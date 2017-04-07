@@ -1,0 +1,53 @@
+@charset "utf-8";
+body,div,span,ul,li,a,h2,h3,h4,input,select,table{
+	padding:0;
+	margin:0;
+}
+body{
+	font: 16px/24px "微软雅黑";
+	color:#666;}
+/*********************以上是预设*****************************/
+.container{
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	width:100%;}
+.container > div{
+	-webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width:30px; 
+    -webkit-transition: width 0.7s ease-out;
+    transition: width 0.7s ease-out;	
+	box-sizing:content-box;
+}
+.edit{
+	background-color:#333;
+	color:#FFF;
+	border-right:5px dotted #999999;}
+.edit textarea{
+	padding:5%;
+	width:100%;
+	min-height:100%;
+	background-color:#333;
+	color:#FFF;
+	font: 16px/24px "微软雅黑";
+	}
+.edit textarea:focus{
+    outline:none;}
+.show{
+	border-left:5px dotted #999999;
+	background-color:#fff;
+	color:#333;}
+.showbox{margin:5%;
+	width:90%;
+	min-height:90%;
+	display:block;
+}
+/******引用样式****/
+.y{
+border-left:7px solid #999;
+padding-left:10px;
+color:#999;
+}
+

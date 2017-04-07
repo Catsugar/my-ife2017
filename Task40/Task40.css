@@ -8,6 +8,8 @@ body{
 	font: 16px/24px "微软雅黑";
 	color:#333;
 	background-color:#FFF;}
+h1{
+	line-height:100px;}
 /*********************以上是预设*****************************/
 .out{
 	width:200px;
@@ -18,10 +20,117 @@ body{
 	margin-top:-100px;
 	margin-left:-100px;
 	border-radius:50%;
-	border:10px solid #F36;}
-.circle{
+	background-color: #F36;
+	z-index:50;
+	animation: rotate 2s linear infinite;
+    -webkit-animation:  rotate  2s linear infinite;
+    -moz-animation: rotate 2s linear infinite;}
+.out::before{
+	display:block;
+    content: '';
+	width:100px;
+	height:100px;
+	border-radius:100px 0 0 0;
+	background-color:#FFF;
+	z-index:60;
+	position:absolute;top:-1px;left:-1px;}
+.out::after{
+	display:block;
+    content: '';
+	width:180px;
+	height:180px;
+	position:absolute;
+	top:10px;
+	left:10px;
+	border-radius:90px;
+	background-color: #fff;
+	z-index:60;
+	animation:none;}
+/*********************内圈*****************************/
+.in-bac{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-70px;
+	margin-left:-70px;
 	width:140px;
 	height:140px;
-	border-radius:50%;
-	margin:30px;
-	background-color:#F36;}
+	border-radius:70px;
+	background-color:rgba(255,255,51,1);
+	z-index:100;}
+.in-bac::before{
+	display:block;
+    content: '';
+	position:absolute;
+	width:70px;
+	height:140px;
+	border-radius:70px 0 0 70px ;
+	top:0px;
+	left:0px;
+	background-color:rgba(255,255,51,1);
+	z-index:120;
+	animation: show 2s steps(1, end) infinite;
+    -webkit-animation:  show  2s steps(1, end) infinite;
+    -moz-animation: show 2s steps(1, end) infinite;}
+
+.in-bac::after{
+	display:block;
+    content: '';
+	position:absolute;
+	width:70px;
+	height:140px;
+	border-radius: 0 70px 70px 0 ;
+	top:0px;
+	right:0px;
+	background-color:rgba(55,255,251,1);
+	z-index:120;
+	animation: hide 2s steps(1, end) infinite;
+    -webkit-animation:  hide  2s steps(1, end) infinite;
+    -moz-animation: hide 2s steps(1, end) infinite;}
+/*********************内圈****************************/
+.in{
+	position:relative;
+	width:140px;
+	height:140px;
+	border-radius:70px;
+	z-index:110;
+	animation: rotate 2s linear infinite;
+    -webkit-animation: rotate  2s linear infinite;
+    -moz-animation: rotate 2s linear infinite;}
+.in::before{
+	display:block;
+    content: '';
+	position:absolute;
+	width:70px;
+	height:140px;
+	border-radius:70px 0 0 70px ;
+	top:0px;
+	left:0px;
+    background-color:rgba(55,255,251,1);}
+/****旋转的动画*****/
+@-webkit-keyframes rotate{
+	from{-webkit-transform:rotate(0);transform:rotate(0);}
+	to{-webkit-transform:rotate(-360deg);transform:rotate(-360deg);}
+}
+@keyframes rotate{
+	from{-webkit-transform:rotate(0);transform:rotate(0);}
+	to{-webkit-transform:rotate(-360deg);transform:rotate(-360deg);}
+}
+/****遮罩的动画*****/
+@-webkit-keyframes hide {
+  0%        { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes hide {
+  0%        { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@-webkit-keyframes show {
+  0%        { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+@keyframes show {
+  0%        { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
