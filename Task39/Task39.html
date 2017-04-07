@@ -9,7 +9,7 @@
 <div class="container">
 <div class="edit">
   <textarea   style="border:0;overflow:auto" name="edit"  id="edit" >
-  这是编辑区，请输入：
+  这是编辑区，快来试试吧！
   # 一级标题
   ## 二级标题
   ### 三级标题
@@ -22,10 +22,13 @@
   2. 有序列表2
   3. 有序列表3
   > 这是一个引用
+  [这是一个链接](https://github.com/Catsuger)
+  ![这是一个图片](http://wx2.sinaimg.cn/large/c23ae3c8gy1fee756qffjg206o06ognb.gif)
   </textarea>
 </div>
 <div class="show" id="show">
   <div class="showbox" id="showbox"></div>
+  
 </div>
 </div>
 <script type="text/javascript">
@@ -40,10 +43,10 @@ function btn() {
 	  value=value.replace(/#\s?([^<br>#]+)<br>/g,"<h1>$1</h1>");//标题1
 	  value=value.replace(/\*\s([^<br>]+)<br>/g,"</ol><li>$1</li>");//无序列表
 	  value=value.replace(/1\.\s([^<br>]+)<br>/g,"</ol><ol><li>$1</li>");//有序列表
-	  
-	  
 	  value=value.replace(/\d\.\s([^<br>]+)<br>/g,"<li>$1</li>");//有序列表
       value=value.replace(/>\s([^<br>]+)<br>/g,"<div class='y'>$1</div>");//引用
+      value=value.replace(/\!\[([^\[\]]+)\]\(([^\(\)]+)\)/g,"<img src='$2' alt='$1'>");//图片
+      value=value.replace(/\[([^\[\]]+)\]\(([^\(\)]+)\)/g,"<a href='$2'>$1</a>");//链接
 	  console.log(value);
   document.getElementById("showbox").innerHTML=value;
   }
