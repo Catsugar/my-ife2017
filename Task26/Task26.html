@@ -133,16 +133,16 @@ function GO(n){
 	var cellLeft=cell.offsetLeft;
 	if(n===0 && cellLeft<364){//左走
 	     cell.style.left=cellLeft+52+"px";
-		 cell.style.transition="left 1000ms ease-in";
+		 cell.style.transition="left 1000ms ease";
 	}else if(n===1 && cellTop<364){//下走
 		 cell.style.top=cellTop+52+"px"; 
-		 cell.style.transition="top 1000ms ease-in";
+		 cell.style.transition="top 1000ms ease";
 	}else if(n===2 && cellLeft>0){//右走
 		 cell.style.left=cellLeft+(-52)+"px";
-		 cell.style.transition="left 1000ms ease-in";
+		 cell.style.transition="left 1000ms ease";
 	}else if(n===3 && cellTop>0){//上走
 		cell.style.top=(cellTop-52)+"px"; 
-	    cell.style.transition="top 1000ms ease-in";
+	    cell.style.transition="top 1000ms ease";
 	}else{ return;}
 }
 
@@ -153,26 +153,26 @@ switch(t)
    case 1://转到下面
         cell.style.webkitTransform="rotate("+90+"deg)";
 		cell.style.transform="rotate("+90+"deg)";
-		cell.style.transition="transform 1000ms ease-in";
-		cell.style.transition="-webkit-transform 1000ms ease-in";
+		cell.style.transition="transform 2000ms ease";
+		cell.style.transition="-webkit-transform 2000ms ease";
 		break;
    case 2://转到右边
         cell.style.webkitTransform="rotate("+180+"deg)";
 		cell.style.transform="rotate("+180+"deg)";
-		cell.style.transition="transform 1000ms ease-in";
-		cell.style.transition="-webkit-transform 1000ms ease-in";
+		cell.style.transition="transform 2000ms ease";
+		cell.style.transition="-webkit-transform 2000ms ease";
 		break;
    case 3://转到上面
         cell.style.webkitTransform="rotate("+270+"deg)";
 		cell.style.transform="rotate("+270+"deg)";
-		cell.style.transition="transform 1000ms ease-in";
-		cell.style.transition="-webkit-transform 1000ms ease-in";
+		cell.style.transition="transform 2000ms ease";
+		cell.style.transition="-webkit-transform 2000ms ease";
 		break;
    case 0://转到左边
         cell.style.webkitTransform="rotate("+0+"deg)";
 		cell.style.transform="rotate("+0+"deg)";
-		cell.style.transition="transform 1000ms ease-in";
-		cell.style.transition="-webkit-transform 1000ms ease-in";
+		cell.style.transition="transform 2000ms ease";
+		cell.style.transition="-webkit-transform 2000ms ease";
 		break;
 	default:
 		return;
