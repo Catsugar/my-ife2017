@@ -9,14 +9,6 @@
 <div class="container">
     <h1>听指令的小方块</h1>
     <div id="box" class="box">
-    <p>TRA LEF：左移一格<br>
-    TRA TOP：上移一格<br>
-    TRA RIG：右移一格<br>
-    TRA BOT：下移一格<br>
-    MOV LEF：转左移动一格<br>
-    MOV TOP：转上移动一格<br>
-    MOV RIG：转右移动一格<br>
-    MOV BOT：转下移动一格</p>
     <div class="cell" id="cell"><img src="arrow.png" width="50" height="50"></div>
     <ul>
         <li><span class="row">1</span><span class="cols">1</span></li>
@@ -87,8 +79,16 @@
     </div>
     <div class="btnbox">
     <form>
-        <input name="input" type="text" id="inputbox" >
-        <input name="btn" type="button" id="btn" class="btn" value="执行">
+        <input name="input" type="text" id="inputbox" class="input">
+        <input name="btn" type="button" id="btn" class="btn" value="执行" >
+        <input name="btn2" type="button" id="TRA-LEF" class="btn2" value="TRA LEF" onClick="GO(0)">
+        <input name="btn2" type="button" id="TRA-BOT" class="btn2" value="TRA BOT" onClick="GO(1)">
+        <input name="btn2" type="button" id="TRA-RIG" class="btn2" value="TRA RIG" onClick="GO(2)">
+        <input name="btn2" type="button" id="TRA-TOP" class="btn2" value="TRA TOP" onClick="GO(3)">
+        <input name="btn2" type="button" id="MOV-LEF" class="btn2" value="MOV LEF" onClick="Turn(0);GO(0)">
+        <input name="btn2" type="button" id="MOV-BOT" class="btn2" value="MOV BOT" onClick="Turn(1);GO(1)">
+        <input name="btn2" type="button" id="MOV-RIG" class="btn2" value="MOV RIG" onClick="Turn(2);GO(2)">
+        <input name="btn2" type="button" id="MOV-TOP" class="btn2" value="MOV TOP" onClick="Turn(3);GO(3)">
     </form>
     </div>
 </div>
