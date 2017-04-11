@@ -48,9 +48,9 @@ function dolist(){
 		li.innerHTML="<input type='radio' name='op' id='"+i+"'><label for='"+i+"'>"+data[i].song+"</label><span>"+data[i].author+"</span>";
 	   songlist.getElementsByTagName("ul")[0].appendChild(li);
 	   //生成音轨
-	   /*var source=document.createElement("source");
+	   var source=document.createElement("source");
 	   source.src=data[i].address;
-	   song.appendChild(source);*/
+	   song.appendChild(source);
 	}
 }
 /*****同步歌曲和封面*****/
