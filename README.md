@@ -40,3 +40,5 @@
 * 任务三十九：正则表达式之简易markdown文件解析器 https://catsuger.github.io/my-ife2017/Task39/Task39.html
 * 任务四十：CSS3饼状loading效果 https://catsuger.github.io/my-ife2017/Task40/Task40.html
 * 任务四十一：CSS3实现3D 轮播图 https://catsuger.github.io/my-ife2017/Task41/Task41.html
+* 任务四十四：仿豆瓣音乐播放器 https://catsuger.github.io/my-ife2017/Task44/Task44.html
+* 任务四十五：实现树形组件 https://catsuger.github.io/my-ife2017/Task45/Task45.html

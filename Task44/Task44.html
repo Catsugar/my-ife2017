@@ -1,0 +1,79 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>仿豆瓣音乐播放器</title>
+<link type="text/css" href="Task44.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div id=""><a href=""></a></div>
+    <!----没有做功能，仅仅为了好看----->
+    <div  id="name">
+      <h3>不老梦</h3>
+      <span>银临</span>
+    </div>
+    <div id=""><a href=""></a></div>
+    <!----没有做功能，仅仅为了好看-----> 
+  </div>
+  <div class="bar" id="bar"> <img src="images/12.png"> </div>
+  <!----那根棍子---->
+  <div class="main">
+    <div id="cover">
+      <div class="pic" id="pic"></div>
+    </div>
+    <div id="cover2" style="display:none">
+      <a href="">没有做歌词，有空再做</a>
+    </div>
+  </div>
+  <div class="infor">
+      <ul>
+        <li id="like"><a href=""></a></li>
+        <!----收藏功能，有空再做----->
+        <li id="download"><a href=""></a></li>
+        <!----下载功能，有空再做----->
+        <li id="comment"><a href=""></a></li>
+        <!----预留功能，有空再做----->
+        <li id="lrc"><a href=""></a> </li>
+        <li id="nolrc" style="display:none"><a href=""></a> </li>
+        <!----歌词功能----->
+      </ul>
+  </div>
+  <div class="time">
+    <div id="start">00:00</div>
+    <div class="line">
+      <div class="white">
+        <div class="red" id="red"></div>
+      </div>
+      <div class="move" id="move"></div>
+    </div>
+    <div id="end">04:00</div>
+  </div>
+  <div class="play">
+    <li id="order1"><a href=""></a></li>
+    <li id="order2" style="display:none"><a href=""></a></li>
+    <li id="order3" style="display:none"><a href=""></a></li>
+    <li id="last"><a href=""></a></li>
+    <li id="isplay"><a href=""></a></li>
+    <li id="noplay" style="display:none"><a href=""></a></li>
+    <li id="next"><a href=""></a></li>
+    <li id="songbtn"><a href=""></a> </li>
+  </div>
+  <!----- 歌曲列表 --------------->
+  <div class="songlist" id="songlist">
+    <h3>播放列表</h3>
+    <ul>
+      <!---<li><input type="radio" id="1" checked><label for="1">不老梦</label><span>银临</span></li>--->
+    </ul>
+    <input type="button" value="确定" id="sure">
+    <input type="button" value="添加歌曲" id="add">
+  </div>
+</div>
+<!-- 插入音频 ---->
+<audio id="song">
+  <!---<source src="test/不老梦.mp3" type="audio/mpeg" >---->
+</audio>
+<script src="Task44.js"></script>
+</body>
+</html>
