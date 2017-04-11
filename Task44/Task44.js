@@ -8,6 +8,7 @@
  var current=0;
  //是否循环
  var isloop=true;
+ var isauto=false;
 var song=document.getElementById('song');
 //那根棍子
 var bar=document.getElementById('bar');
@@ -61,6 +62,8 @@ function renew(a){
 	  var source=document.createElement("source");
 	  source.src=data[a].address;
 	  song.appendChild(source);
+	  song.load();
+	  if(isauto==true){song.autoplay=true;}else{song.autoplay=false;}
 }
 /*****时间线*****/
 function timeline(){
@@ -126,8 +129,8 @@ function btn() {
 	/*********添加歌曲列表******/
 	add.onclick=function(){alert("还没有做，去后台添加吧");}
 	/*********播放歌曲******/
-	isplay.onclick=function(){play();}
-	noplay.onclick=function(){pause();}
+	isplay.onclick=function(){play();isauto=true;}
+	noplay.onclick=function(){pause();isauto=false;}
 	/*********上一曲和下一曲******/
 	next.onclick=function(){
 		if(current>data.length){current=0;}
