@@ -47,6 +47,7 @@ function show(a){
   showbox.innerHTML="";	
   var ul=document.createElement("ul");
   var showlis=a.parentNode.children[1].children;
+  if(a.className=='c-name'){return;}
   for (var i = 0; i < showlis.length; i++) {
 	if(showlis[i].children[0].className=="p-name"){
 	  ul.innerHTML+="<li class='P'><a href=''>"+showlis[i].children[0].innerHTML+"</a></li>";
