@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>百度糯米前端技术学院任务一：实现树形组件</title>
+<link type="text/css" href="Task45.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container" id="container">
+<!----------左边--------------------------------->
+<div class="index">
+<!----------标题--------------------------------->
+    <div class="title"><h3>目录导航</h3></div>
+<!----------列表--------------------------------->
+    <div class="list" id="list">
+       <ul id="root"></ul>
+     </div>
+</div>
+<!----------右边--------------------------------->
+<div class="content">
+<div class="title" id="title"><h2>文件夹名字</h2></div>
+    <div class="showbox" id="showbox">
+       <!---<ul>
+         <li class="P"><a href="">文件</a></li>
+         <li class="C"><a href="">文件夹</a></li>
+         <li class="P"><a href="">文件</a></li>
+         <li class="C"><a href="">文件夹</a></li>
+         <li class="P"><a href="">文件</a></li>
+         <li class="C"><a href="">文件夹</a></li>
+         <li class="P"><a href="">文件</a></li>
+         <li class="C"><a href="">文件夹</a></li>
+         <li class="P"><a href="">文件</a></li>
+         <li class="C"><a href="">文件夹</a></li>
+       </ul>--->
+     <div>
+  </div>
+</div>
+<!----------右键菜单--------------------------------->
+<div class="menu" id="menu">
+    <input type="button" value="新建文件" id="ad1"><hr>
+    <input type="button" value="新建文件夹" id="ad2"><hr>
+    <input type="button" value="删除" id="del">
+</div>  
+<!----------对话框--------------------------------->
+<div class="dialog" id="dialog">
+    <h3>请输入文件名：</h3>
+    <input type="text" id="inputname" >
+    <input type="button" value="确定" id="sure">
+</div>  
+
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="Task45.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+</body>
+</html>
