@@ -5,8 +5,8 @@
 <title>百度糯米前端技术学院任务二：动态数据绑定（一）</title>
 </head>
 <body>
-<h1>百度糯米前端技术学院任务二：动态数据绑定（一）</h1>
-<h3>请按F12打开控制台</h3>
+<h1  style="text-align: center;">动态数据绑定（一）</h1>
+<h3  style="text-align: center;">请按F12打开控制台</h3>
 <script>
 	//构建观察者函数
 	function Observer(data) {
@@ -14,11 +14,11 @@
 		this.walk(data);
 	}
     // 构造函数的原型对象
-	let p = Observer.prototype;
+   var p = Observer.prototype; 
     //遍历对象添加方法
 	p.walk = function(obj){
-		let val;
-		for(let key in obj){
+		var val;
+		for(var key in obj){
 			if(obj.hasOwnProperty(key)){
 				val = obj[key];
 				if(typeof val === 'object'){
@@ -38,8 +38,7 @@
 	            return val;
         	},
         	set: function (newVal) {
-	            console.log('你设置了' + key);
-	            console.log('新的' + key + ' = ' + newVal)
+	            console.log('你设置了' + key+',新的值为'+ newVal);
 	            if (newVal === val) return;
 	            val = newVal;
 	        }
@@ -47,11 +46,11 @@
 	}
 
         // test
-        let app1 = new Observer({
+        var app1 = new Observer({
             name: 'youngwind',
             age: 25
         });
-        let app2 = new Observer({
+        var app2 = new Observer({
             university: 'bupt',
             major: 'computer'
         });
