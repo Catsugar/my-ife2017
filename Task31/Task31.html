@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>动态数据绑定（二）</title>
+</head>
+<body>
+<h1 style="text-align: center;">动态数据绑定（二）</h1>
+<h3 style="text-align: center;">按 F12 打开工作台</h3>
+<script>
+   // Observer 的构造函数
+   function Observer(data) {
+     this.data = data;
+     this.walk(data);
+	/* this.watchEvent=new Event(); */
+   }
+   // 构造函数的原型对象 
+   var p = Observer.prototype; 
+   // 遍历对象自己拥有的属性，为它们添加访问器方法
+   p.walk = function(obj) {
+      var key, val;
+      // 遍历对象的属性
+      for (key in obj) {
+        // 获取对象本身拥有的属性
+        if (obj.hasOwnProperty(key)) {
+           val = obj[key];
+           if (typeof val === "object") {new Observer(val);} // 如果属性仍然为对象，则递归遍历
+           this.convert(key, val); // 用 this 调用 convert 函数，为拥有属性的对象添加访问器属性
+         }
+      }
+   }
+   // 为对象添加访问器属性 
+   p.convert = function(key, val) {
+      Object.defineProperty(this.data, key, {
+         enumerable: true,
+         configurable: true,
+         // get 函数
+         get: function() {
+            if (typeof val !== 'object'){console.log("你访问了 " + key);}
+            return val;
+          },
+         // set 函数
+         set: function(newVal) {
+			if (typeof newVal === 'object'){
+				new Observer(newVal);
+			}else{console.log("你设置了 " + key + "，新的值为 " + newVal);}//递归
+            if (newVal === val) return;
+		    val = newVal;
+          },
+       });
+    }
+    /******************以下为测试部分*****************************/
+    //访问对象和设置对象
+	var app1 = new Observer({
+         name: {lastName: 'liang',
+                firstName: 'shaofeng'},
+         age: 25,
+    });
+    app1.data.name.lastName;// 你访问了 lastName 
+    app1.data.name.firstName = 'lalala'; //你设置了firstName, 新的值为 lalala
+    app1.data.age = 100; // 我的年纪变了，现在已经是100岁了' 
+ </script>
+</body>
+</html>
