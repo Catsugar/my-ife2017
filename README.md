@@ -33,6 +33,10 @@
 * 任务二十八：UI组件之排序表格https://catsuger.github.io/my-ife2017/Task28/Task28.html
 ### 百度糯米学院
 * 任务二十九：有趣的鼠标悬浮模糊效果 https://catsuger.github.io/my-ife2017/Task29/Task29.html
+* 任务三十：动态数据绑定（一） https://catsuger.github.io/my-ife2017/Task30/Task30.html
+* 任务三十一：动态数据绑定（二）https://catsuger.github.io/my-ife2017/Task31/Task31.html
+* 任务三十二：动态数据绑定（三） https://catsuger.github.io/my-ife2017/Task32/Task32.html
+* 任务三十三：动态数据绑定（四） https://catsuger.github.io/my-ife2017/Task33/Task33.html
 * 任务三十四：自定义checkbox， radio样式 https://catsuger.github.io/my-ife2017/Task34/Task34.html
 * 任务三十六：自定义网页右键菜单 https://catsuger.github.io/my-ife2017/Task36/Task36.html
 * 任务三十七：使用CSS实现折叠面板 https://catsuger.github.io/my-ife2017/Task37/Task37.html
