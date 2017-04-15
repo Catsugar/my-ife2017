@@ -46,3 +46,6 @@
 * 任务四十一：CSS3实现3D 轮播图 https://catsuger.github.io/my-ife2017/Task41/Task41.html
 * 任务四十四：仿豆瓣音乐播放器 https://catsuger.github.io/my-ife2017/Task44/Task44.html
 * 任务四十五：实现树形组件 https://catsuger.github.io/my-ife2017/Task45/Task45.html
+### ECharts & WebVR学院
+* 任务四十六：WebGL No.1 - Three.js 入门 https://catsuger.github.io/my-ife2017/Task46/Task46.html
+* 任务四十七：WebGL No. 2 - 光与影 https://catsuger.github.io/my-ife2017/Task47/Task48.html
