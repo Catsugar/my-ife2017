@@ -7,7 +7,7 @@
 body{
 	padding:0;
 	margin:0;
-	background-color:#eee;}
+	background-color:#CCC;}
 #mainCanvas{
 	padding:0;
 	margin:0 auto;}
@@ -20,46 +20,72 @@ function init(){
 		canvas: document.getElementById('mainCanvas'),
         antialias: true,  
         precision: "highp" }); 
-	renderer.setSize(1200, 600); 
-	renderer.setClearColor(0xeeeeee);
+	renderer.shadowMapEnabled = true;
+	//renderer.shadowMapSoft = true;  //设置可以渲染阴影
+	renderer.setSize(1400, 700); 
+	renderer.setClearColor(0xcccccc);
 	//场景
 	var scene = new THREE.Scene();
 	//透视照相机
-	camera = new THREE.PerspectiveCamera(45, 2 / 1, 1, 1000);   // 创建
+	camera = new THREE.PerspectiveCamera(45, 2 / 1, 1, 1000);   
+	// 创建
     camera.position.set(3,4,5); 
     camera.lookAt(new THREE.Vector3(0, 0, 0));  
 	scene.add(camera);
+	//平面
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(15, 15, 16, 16),
+                new THREE.MeshLambertMaterial({color: 0x999999}));
+    plane.rotation.x = -Math.PI / 2;
+	plane.position.set(-4,-2,-4); 
+    plane.receiveShadow = true;
+    scene.add(plane);
 	//车声
     var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), 
 			  new THREE.MeshLambertMaterial({color: 0xFF8040, emissive: 0xFF8040 }));
-	car.position.set(0, 0,0); 
+	//car.position.set(0, 0,0); 
+	car.castShadow = true;
 	scene.add(car);
 	//轮子
 	var wheel1=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72) ,
-			  new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc }));
+			  new THREE.MeshPhongMaterial({color: 0x9966cc, emissive: 0x9966cc }));
 	wheel1.position.set(1.5,-1,1); 
+	wheel1.castShadow = true;
 	scene.add(wheel1);
 	//轮子
 	var wheel2=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72) ,
-			   new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc }));
+			   new THREE.MeshPhongMaterial({color: 0x9966cc, emissive: 0x9966cc }));
 	wheel2.position.set(1.5,-1,-1); 
+	wheel2.castShadow = true;
 	scene.add(wheel2);
 	//轮子
 	var wheel3=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72) ,
-			   new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc }));
+			   new THREE.MeshPhongMaterial({color: 0x9966cc, emissive: 0x9966cc }));
 	wheel3.position.set(-1.5,-1,1); 
+	wheel3.castShadow = true;
 	scene.add(wheel3);
 	//轮子
 	var wheel4=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72) ,
-			   new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc }));
+			   new THREE.MeshPhongMaterial({color: 0x9966cc, emissive: 0x9966cc }));
 	wheel4.position.set(-1.5,-1,-1); 
+	wheel4.castShadow = true;
 	scene.add(wheel4);
-     // light
-    var light = new THREE.PointLight(0xffffff, 1, 100);
-    light.position.set(3, 4, 5);
-    scene.add(light);
-	//渲染
-	renderer.render(scene, camera);  
+    // 光
+    // var light = new THREE.AmbientLight(0xffffff, 2, 100); //环境光
+	//var light = new THREE.PointLight(0xffffff, 1, 100);//点光源
+	//var light = new THREE.DirectionalLight(); //平行光
+	//聚光灯
+    var light = new THREE.SpotLight(0xffff00, 1, 100, Math.PI / 6, 25);
+    light.position.set(3, 5, 2);
+    light.target = car;
+	light.castShadow = true; 
+    light.shadowCameraVisible = true; 
+    light.shadowDarkness = 1; 
+	scene.add(light);
+	// 环境光
+   var ambient = new THREE.AmbientLight(0x666666);
+   scene.add(ambient);	
+   //渲染
+   renderer.render(scene, camera);
 }
 </script>
 </head>

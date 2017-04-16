@@ -49,3 +49,5 @@
 ### ECharts & WebVR学院
 * [任务四十六：WebGL No.1 - Three.js 入门](https://catsuger.github.io/my-ife2017/Task46/Task46.html)
 * [任务四十七：WebGL No. 2 - 光与影](https://catsuger.github.io/my-ife2017/Task47/Task47.html)
+* [任务四十八：WebGL No. 3 - 材质与纹理](https://catsuger.github.io/my-ife2017/Task48/Task48.html)
+* [任务四十九：WebGL No. 4 - 照相机和交互控制](https://catsuger.github.io/my-ife2017/Task49/Task49.html)
