@@ -87,7 +87,7 @@ function init(){
     // 光
     // var light = new THREE.AmbientLight(0xffffff, 2, 100); //环境光
 	//var light = new THREE.PointLight(0xffffff, 1, 100);//点光源
-	var light = new THREE.DirectionalLight(); //平行光
+	var light = new THREE.DirectionalLight(0xffffff); //平行光
 	//聚光灯
     //var light = new THREE.SpotLight(0xffffff, 1, 100, Math.PI / 6, 25);
     light.position.set(3, 5, 2);
@@ -101,8 +101,8 @@ function init(){
     light.shadowMapHeight = 1024;
     light.shadowDarkness = 0.3;	scene.add(light);
 	// 环境光
-   var ambient = new THREE.AmbientLight(0x666666);
-   scene.add(ambient);	
+  /* var ambient = new THREE.AmbientLight(0x666666);
+   scene.add(ambient);	*/
    //渲染
    renderer.render(scene, camera);
 }
