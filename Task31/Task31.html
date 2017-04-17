@@ -8,15 +8,40 @@
 <h1 style="text-align: center;">动态数据绑定（二）</h1>
 <h3 style="text-align: center;">按 F12 打开工作台</h3>
 <script>
+   //实现一个事件
+   function Event(){
+     this.events = {};
+   }
+   Event.prototype.on = function(attr, callback){
+     if(this.events[attr]){
+       this.events[attr].push(callback);
+     }else{
+       this.events[attr] = [callback];
+     }
+   }
+   Event.prototype.off = function(attr){
+     for(var key in this.events){
+       if(this.events.hasOwnProperty(key) && key === attr){
+         delete this.events[key];
+       }
+     }
+   }
+   Event.prototype.emit = function(attr, ...arg){
+      this.events[attr] && this.events[attr].forEach(function(item){
+        item(...arg);
+      })
+   }
+   
    // Observer 的构造函数
    function Observer(data) {
      this.data = data;
      this.walk(data);
-	/* this.watchEvent=new Event(); */
+	 this.watchEvent=new Event();
    }
    // 构造函数的原型对象 
-   var p = Observer.prototype; 
+   var p=Observer.prototype;
    // 遍历对象自己拥有的属性，为它们添加访问器方法
+   
    p.walk = function(obj) {
       var key, val;
       // 遍历对象的属性
@@ -31,6 +56,7 @@
    }
    // 为对象添加访问器属性 
    p.convert = function(key, val) {
+	  var _this=this;
       Object.defineProperty(this.data, key, {
          enumerable: true,
          configurable: true,
@@ -49,16 +75,31 @@
           },
        });
     }
-    /******************以下为测试部分*****************************/
+	/****构造$watch***/
+	Observer.prototype.$watch = function(attr, callback){
+      this.watchEvent.on(attr, callback);}
     //访问对象和设置对象
-	var app1 = new Observer({
+	var app= new Observer({
          name: {lastName: 'liang',
                 firstName: 'shaofeng'},
          age: 25,
     });
-    app1.data.name.lastName;// 你访问了 lastName 
-    app1.data.name.firstName = 'lalala'; //你设置了firstName, 新的值为 lalala
-    app1.data.age = 100; // 我的年纪变了，现在已经是100岁了' 
+	/*app.$watch('age', function(oldVal, newVal){
+       console.log('我的年龄变了，原来是: ${oldVal}岁，现在是：${newVal}岁了')
+    })
+
+    app.$watch('age', function(oldVal, newVal){
+       console.log('我的年龄真的变了诶，竟然年轻了${oldVal - newVal}岁')
+    })
+
+    app.data.basicInfo.age = 20;*/
+	app.$watch('age', function(age){
+        console.log('我的年龄变了，现在是：${age}岁了')
+     })
+    /******************以下为测试部分*****************************/
+    app.data.name.lastName;// 你访问了 lastName 
+    app.data.name.firstName = 'lalala'; //你设置了firstName, 新的值为 lalala
+    app.data.age = 100; // 我的年纪变了，现在已经是100岁了' 
  </script>
 </body>
 </html>
