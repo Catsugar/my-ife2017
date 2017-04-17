@@ -28,7 +28,7 @@ function init(){
 	//场景
 	var scene = new THREE.Scene();
 	//透视照相机
-	camera = new THREE.PerspectiveCamera(45, 2 / 1, 1, 1000);   
+	camera = new THREE.PerspectiveCamera(50, 2 / 1, 1, 1000);   
 	// 创建
     camera.position.set(3,4,5); 
     camera.lookAt(new THREE.Vector3(0, 0, 0));  
@@ -51,7 +51,7 @@ function init(){
 	//车子的颜色
 	var materials = []; 
 	for (var i = 0; i < 6; ++i) { 
-		materials.push(new THREE.MeshBasicMaterial({ 
+		materials.push(new THREE.MeshLambertMaterial({ 
 			map: THREE.ImageUtils.loadTexture('image/cat' + i + '.jpg', {}, function() { 
 						renderer.render(scene, camera); }), 
 			overdraw: true 
