@@ -49,10 +49,10 @@ function init(){
     scene.add(plane);
 	//车声
 	//车子的颜色
-	/*var materials = []; 
+	var materials = []; 
 	for (var i = 0; i < 6; ++i) { 
 		materials.push(new THREE.MeshBasicMaterial({ 
-			map:loader.load('image/cat' + i + '.jpg', 
+			map: THREE.ImageUtils.loadTexture('image/cat' + i + '.jpg', 
 					function() { 
 						renderer.render(scene, camera); 
 					}), 
@@ -63,9 +63,9 @@ function init(){
 	car.castShadow = true;
 	scene.add(car);
 	//轮子的颜色
-	 var texturewheel = loader.load('image/wheel.jpg', function() {
+	 var wheeltexture = THREE.ImageUtils.loadTexture('image/wheel.jpg', function() {
                     renderer.render(scene, camera);});
-     var wheel1_bg = new THREE.MeshLambertMaterial({map: texturewheel});
+     var wheel1_bg = new THREE.MeshLambertMaterial({map: wheeltexture});
 	//轮子
 	var wheel1=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
 	wheel1.position.set(1.5,-1,1); 
@@ -85,7 +85,7 @@ function init(){
 	var wheel4=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
 	wheel4.position.set(-1.5,-1,-1); 
 	wheel4.castShadow = true;
-	scene.add(wheel4);***********************************************/
+	scene.add(wheel4);
     // 光
     // var light = new THREE.AmbientLight(0xffffff, 2, 100); //环境光
 	//var light = new THREE.PointLight(0xffffff, 1, 100);//点光源
