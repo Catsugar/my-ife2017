@@ -38,7 +38,7 @@ function init(){
 	var floortexture = THREE.ImageUtils.loadTexture('image/bg.jpg', {}, function() {
 		renderer.render(scene, camera);
 	});
-	var floormaterial = new THREE.MeshLambertMaterial({
+	var floormaterial = new THREE.MeshBasicMaterial({
 		map: floortexture
 	});    
 	//******************平面的材质
