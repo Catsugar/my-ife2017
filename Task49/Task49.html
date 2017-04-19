@@ -15,36 +15,27 @@ body{
 <script type="text/javascript" src="three.js"></script> 
 <script type="text/javascript" src="TrackballControls.js"></script> 
 <script type="text/javascript">
-//公共变量
-var fov, aspect,near,far;
-var cameraX,cameraY,cameraZ;
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-var container, stats;
-var camera, controls, scene, renderer;
-var cross;
-//函数执行
-init();
-animate();
-
 function init(){
 	//绑定渲染器和canvas
-	renderer = new THREE.WebGLRenderer({
+	var renderer = new THREE.WebGLRenderer({
 		canvas: document.getElementById('mainCanvas'),
         antialias: true,  
         precision: "highp" }); 
 	renderer.shadowMapEnabled = true;//设置可以渲染阴影
 	renderer.shadowMapSoft = true; //软阴影 	
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setClearColor(0xcccccc);
 	//场景
-	scene = new THREE.Scene();
+	var scene = new THREE.Scene();
+	scene.fog = new THREE.FogExp2(0xcccccc, 0.002);//雾化
+	
 	//透视照相机
-	camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
-	camera.position.z = 500;
+	var camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 1, 1000 );
+	camera.position.set(3,4,5); 
     camera.lookAt(new THREE.Vector3(0, 0, 0));  
 	scene.add(camera);
 	//控制器
-	controls = new THREE.TrackballControls( camera );
+	var controls = new THREE.TrackballControls( camera );
 	controls.rotateSpeed = 1.0;
 	controls.zoomSpeed = 1.2;
 	controls.panSpeed = 0.8;
@@ -52,43 +43,43 @@ function init(){
 	controls.noPan = false;
 	controls.staticMoving = true;
 	controls.dynamicDampingFactor = 0.3;
-
+    controls.keys = [65, 83, 68];
+    controls.addEventListener('change', render);
 	//平面
 	//******************平面的材质
-	/*var floortexture = THREE.ImageUtils.loadTexture('image/bg.jpg', {}, function() {
+	var floortexture = THREE.ImageUtils.loadTexture('image/bg.jpg', {}, function() {
 		renderer.render(scene, camera);
 	});
 	var floormaterial = new THREE.MeshLambertMaterial({
 		map: floortexture
-	}); */
-	
-	 var floormaterial = new THREE.MeshLambertMaterial({color: 0x999999});//****************测试用
+	}); 
+	 //var floormaterial = new THREE.MeshLambertMaterial({color: 0x999999});//****************测试用
 	//******************平面的材质
     var plane = new THREE.Mesh(new THREE.PlaneGeometry(17, 12.8, 16, 16),floormaterial);
     plane.rotation.x = -Math.PI / 2;
-	plane.position.set(-4,-2,-4); 
+	plane.position.set(-4,-2,-2); 
     plane.receiveShadow = true;
     scene.add(plane);
 	//车声
 	//车子的颜色
-	/*var materials = []; 
+	var materials = []; 
 	for (var i = 0; i < 6; ++i) { 
 		materials.push(new THREE.MeshLambertMaterial({ 
 			map: THREE.ImageUtils.loadTexture('image/cat' + i + '.jpg', {}, function() { 
 						renderer.render(scene, camera); }), 
 			overdraw: true 
 		})); 
-	} */
-    var materials = new THREE.MeshLambertMaterial({color: 0xFF8040, emissive: 0xFF8040 });//****************测试用
-    //var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), new THREE.MeshFaceMaterial(materials));
-	var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), materials);//****************测试用
+	} 
+    //var materials = new THREE.MeshLambertMaterial({color: 0xFF8040, emissive: 0xFF8040 });//****************测试用
+    var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), new THREE.MeshFaceMaterial(materials));
+	//var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), materials);//****************测试用
 	car.castShadow = true;
 	scene.add(car);
 	//轮子的颜色
-	/* var wheeltexture = THREE.ImageUtils.loadTexture('image/wheel.jpg',{}, function() {
+	var wheeltexture = THREE.ImageUtils.loadTexture('image/wheel.jpg',{}, function() {
                     renderer.render(scene, camera);});
-     var wheel1_bg = new THREE.MeshLambertMaterial({map: wheeltexture});*/
-	 var wheel1_bg = new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc});//****************测试用
+     var wheel1_bg = new THREE.MeshLambertMaterial({map: wheeltexture});
+	 //var wheel1_bg = new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc});//****************测试用
 	//轮子
 	var wheel1=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
 	wheel1.position.set(1.5,-1,1); 
@@ -127,11 +118,17 @@ function init(){
    scene.add(ambient);
    //渲染
    renderer.render(scene, camera);
+   animate();
+
+	function animate(){
+		requestAnimationFrame(animate);
+		controls.update();
+	}
+	function render() {
+		renderer.render(scene, camera);
+	}
 }
 
-
-function animate(){
-}
 
 
 </script>
