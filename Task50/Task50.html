@@ -68,61 +68,62 @@ function init(){
 	
 	//开始画车辣***********************************************************
 	//平面
-	var floortexture = THREE.ImageUtils.loadTexture('image/bg.jpg', {}, function() {
+	/*var floortexture = THREE.ImageUtils.loadTexture('image/bg.jpg', {}, function() {
 		renderer.render(scene, camera);
 	});
 	var floormaterial = new THREE.MeshLambertMaterial({
 		map: floortexture
-	}); 
-	//var floormaterial = new THREE.MeshLambertMaterial({color: 0x999999});//****************测试用
-    var plane = new THREE.Mesh(new THREE.PlaneGeometry(31.25, 8, 16, 16),floormaterial);
+	}); */
+	var floormaterial = new THREE.MeshLambertMaterial({color: 0x999999});//****************测试用
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(37.5, 9.6, 16, 16),floormaterial);
     plane.rotation.x = -Math.PI / 2;
 	plane.position.set(-10,-2,-2); 
     plane.receiveShadow = true;
     scene.add(plane);
 	//车声
 	var materials = []; 
-	for (var i = 0; i < 6; ++i) { 
+	/*for (var i = 0; i < 6; ++i) { 
 		materials.push(new THREE.MeshLambertMaterial({ 
 			map: THREE.ImageUtils.loadTexture('image/cat' + i + '.jpg', {}, function() { 
 						renderer.render(scene, camera); }), 
 			overdraw: true 
 		})); 
-	} 
-    //var materials = new THREE.MeshLambertMaterial({color: 0xFF8040, emissive: 0xFF8040 });//****************测试用
-   var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), new THREE.MeshFaceMaterial(materials));
-	//var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), materials);//****************测试用
+	} */
+    var materials = new THREE.MeshLambertMaterial({color: 0xFF8040, emissive: 0xFF8040 });//****************测试用
+  // var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), new THREE.MeshFaceMaterial(materials));
+	var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), materials);//****************测试用
 	car.castShadow = true;
 	car.position.set(6,0,0);
-	scene.add(car);
+	
 	//轮子的颜色
-	var wheeltexture = THREE.ImageUtils.loadTexture('image/wheel.jpg',{}, function() {
+	/*var wheeltexture = THREE.ImageUtils.loadTexture('image/wheel.jpg',{}, function() {
                     renderer.render(scene, camera);});
-     var wheel1_bg = new THREE.MeshLambertMaterial({map: wheeltexture});
-	//var wheel1_bg = new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc});//****************测试用
+     var wheel1_bg = new THREE.MeshLambertMaterial({map: wheeltexture});*/
+	var wheel1_bg = new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc});//****************测试用
 	//轮子
 	var wheel1=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
-	wheel1.position.set(7.5,-1,1); 
+	wheel1.position.set(1.5,-1,1); 
 	wheel1.castShadow = true;
-	scene.add(wheel1);
 	//轮子
 	var wheel2=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
-	wheel2.position.set(7.5,-1,-1); 
+	wheel2.position.set(1.5,-1,-1); 
 	wheel2.castShadow = true;
-	scene.add(wheel2);
 	//轮子
 	var wheel3=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
-	wheel3.position.set(5.5,-1,1); 
+	wheel3.position.set(-1.5,-1,1); 
 	wheel3.castShadow = true;
-	scene.add(wheel3);
 	//轮子
 	var wheel4=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
-	wheel4.position.set(5.5,-1,-1); 
+	wheel4.position.set(-1.5,-1,-1); 
 	wheel4.castShadow = true;
-	scene.add(wheel4);
-	
+	car.add(wheel1);
+    car.add(wheel2);
+    car.add(wheel3);
+    car.add(wheel4);
+	scene.add(car);
     // 光*********************************************
-	var light = new THREE.DirectionalLight(0xffffff); //平行光
+	//var light = new THREE.DirectionalLight(0xffffff); //平行光
+	var light = new THREE.SpotLight(0xffffff, 1, 100, Math.PI / 6, 25);
     light.position.set(3, 4, 2);
     light.target = car;
 	light.castShadow = true; 
@@ -149,10 +150,6 @@ function init(){
      renderer.render(scene, camera); 
      id = requestAnimationFrame(draw); 
 	  car.position.x = (car.position.x -0.1); 
-	  wheel1.position.x = (wheel1.position.x -0.1); 
-	  wheel2.position.x = (wheel2.position.x -0.1); 
-	  wheel3.position.x = (wheel3.position.x -0.1); 
-	  wheel4.position.x = (wheel4.position.x -0.1); 
      stat.end(); 
 	 if(car.position.x<-11){
 	    stop();
@@ -165,11 +162,11 @@ function init(){
         id = null; 
       } 
    }  
-
-	/*function animate(){
+//照相机变换
+	function animate(){
 		requestAnimationFrame(animate);
 		controls.update();
-	}*/
+	}
 	function render() {
 		renderer.render(scene, camera);
 	}
