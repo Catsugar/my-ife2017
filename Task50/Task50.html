@@ -143,12 +143,28 @@ window.onload=function(){
     animate();//照相机
 //***********************************************动画
    id = requestAnimationFrame(loaddraw); 
-   //出场秀
+  //走路的动画
+   function go(value){
+     car.position.x = (car.position.x -value); 
+	 var ww=wheel1.rotation.z;
+	 wheel1.rotation.z = (wheel1.rotation.z+value/0.45 ) % (Math.PI * 2); 
+	 wheel2.rotation.z = (wheel2.rotation.z+value/0.45 ) % (Math.PI * 2); 
+	 wheel3.rotation.z = (wheel3.rotation.z+value/0.45 ) % (Math.PI * 2); 
+	 wheel4.rotation.z = (wheel4.rotation.z+value/0.45 ) % (Math.PI * 2);
+	 //console.log("ww--"+ww+"wheel1.rotation.z---"+wheel1.rotation.z) ;
+
+   }
+     //旋转的动画
+   function rotate(value){
+     car.rotation.y = (car.rotation.y +value) % (Math.PI * 2);
+   }
+
+ //出场秀
    function loaddraw() { 
      stat.begin(); 
      renderer.render(scene, camera); 
+	 go(0.1);
      id = requestAnimationFrame(loaddraw); 
-	 car.position.x = (car.position.x -0.1); 
      stat.end(); 
 	 if(car.position.x<-8){stop1();}
    }
@@ -160,7 +176,7 @@ window.onload=function(){
    }     
 //***********************************************键盘动画
    var gofront=false,goback=false,goleft=false,goright=false;
-   var a=-0.3;
+   var a=0.3;
    var carX=0;
    var carY=0;
    function draw() { 
@@ -168,23 +184,23 @@ window.onload=function(){
      renderer.render(scene, camera); 
 	 if(gofront){
 		 carX=car.position.x;
-		 car.position.x+=a;
-		 console.log("car.position.x:"+car.position.x+"carX:"+carX);
+		 go(a);
+		 //console.log("car.position.x:"+car.position.x+"carX:"+carX);
 		 if(car.position.x!==carX){stop2();} 
 	 }else if(goback){
 		 carX=car.position.x;
-		 car.position.x-=a;
-		 console.log("car.position.x:"+car.position.x+"carX:"+carX);
+		 go(-a);
+		 //console.log("car.position.x:"+car.position.x+"carX:"+carX);
 		 if(car.position.x!==carX){stop2();}
 	 }else if(goleft){
 		 carY=car.rotation.y;
-		 car.rotation.y = (car.rotation.y + a) % (Math.PI * 2);
-		 console.log("car.position.y:"+car.position.y+"carY:"+carY);
+		 rotate(a);
+		 //console.log("car.position.y:"+car.position.y+"carY:"+carY);
 		 if(car.position.y!==carY){stop2();}
 	 }else if(goright){
 		 carY=car.rotation.y;
-		 car.rotation.y = (car.rotation.y - a) % (Math.PI * 2);
-		 console.log("car.position.y:"+car.position.y+"carY:"+carY);
+		 rotate(-a);
+		// console.log("car.position.y:"+car.position.y+"carY:"+carY);
 		 if(car.position.y!==carY){stop2();}
 	 }
      id = requestAnimationFrame(draw); 
