@@ -73,14 +73,14 @@ window.onload=function(){
 	  renderer.render(scene, camera);
   });
   var floormaterial = new THREE.MeshLambertMaterial({map: floortexture}); 
-  //var floormaterial = new THREE.MeshLambertMaterial({color: 0x999999});//****************测试用
+ // var floormaterial = new THREE.MeshLambertMaterial({color: 0x999999});//****************测试用
   var plane = new THREE.Mesh(new THREE.PlaneGeometry(37.5, 9.6, 16, 16),floormaterial);
   plane.rotation.x = -Math.PI / 2;	
   plane.position.set(-10,-2,-2); 
   plane.receiveShadow = true;
   scene.add(plane);
   //车声
-  var materials = []; 
+ var materials = []; 
   for (var i = 0; i < 6; ++i) { 
 		materials.push(new THREE.MeshLambertMaterial({ 
 			map: THREE.ImageUtils.loadTexture('image/cat' + i + '.jpg', {}, function() { 
@@ -88,15 +88,15 @@ window.onload=function(){
 			overdraw: true 
 		})); 
 	} 
-   // var materials = new THREE.MeshLambertMaterial({color: 0xFF8040, emissive: 0xFF8040 });//****************测试用
-    var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), new THREE.MeshFaceMaterial(materials));
-	//var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), materials);//****************测试用
+	var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), new THREE.MeshFaceMaterial(materials));
+    //var materials = new THREE.MeshLambertMaterial({color: 0xFF8040, emissive: 0xFF8040 });//****************测试用
+    //var car = new THREE.Mesh(new THREE.CubeGeometry(4, 2, 2), materials);//****************测试用
 	car.castShadow = true;
 	car.position.set(6,0,0);
 	//轮子的颜色
 	var wheeltexture = THREE.ImageUtils.loadTexture('image/wheel.jpg',{}, function() {
                     renderer.render(scene, camera);});
-     var wheel1_bg = new THREE.MeshLambertMaterial({map: wheeltexture});
+    var wheel1_bg = new THREE.MeshLambertMaterial({map: wheeltexture});
 	//var wheel1_bg = new THREE.MeshLambertMaterial({color: 0x9966cc, emissive: 0x9966cc});//****************测试用
 	//轮子
 	var wheel1=new THREE.Mesh( new THREE.TorusGeometry(0.45,0.25,48,72),wheel1_bg);
@@ -144,9 +144,10 @@ window.onload=function(){
 //***********************************************动画
    id = requestAnimationFrame(loaddraw); 
   //走路的动画
-   function go(value){
-     car.position.x = (car.position.x -value); 
-	 var ww=wheel1.rotation.z;
+   function go(value,angle){
+	 console.log('angle*******'+angle+"x***"+car.position.x+"z****"+car.position.z);
+     car.position.x = car.position.x-value*Math.cos(angle % (Math.PI * 2)); 
+     car.position.z = car.position.z+value*Math.sin(angle % (Math.PI * 2)); 
 	 wheel1.rotation.z = (wheel1.rotation.z+value/0.45 ) % (Math.PI * 2); 
 	 wheel2.rotation.z = (wheel2.rotation.z+value/0.45 ) % (Math.PI * 2); 
 	 wheel3.rotation.z = (wheel3.rotation.z+value/0.45 ) % (Math.PI * 2); 
@@ -158,12 +159,11 @@ window.onload=function(){
    function rotate(value){
      car.rotation.y = (car.rotation.y +value) % (Math.PI * 2);
    }
-
  //出场秀
    function loaddraw() { 
      stat.begin(); 
      renderer.render(scene, camera); 
-	 go(0.1);
+	 go(0.1,0);
      id = requestAnimationFrame(loaddraw); 
      stat.end(); 
 	 if(car.position.x<-8){stop1();}
@@ -177,6 +177,7 @@ window.onload=function(){
 //***********************************************键盘动画
    var gofront=false,goback=false,goleft=false,goright=false;
    var a=0.3;
+   var b=0.1;
    var carX=0;
    var carY=0;
    function draw() { 
@@ -184,24 +185,24 @@ window.onload=function(){
      renderer.render(scene, camera); 
 	 if(gofront){
 		 carX=car.position.x;
-		 go(a);
-		 //console.log("car.position.x:"+car.position.x+"carX:"+carX);
+		 go(a,carY);
 		 if(car.position.x!==carX){stop2();} 
 	 }else if(goback){
 		 carX=car.position.x;
-		 go(-a);
-		 //console.log("car.position.x:"+car.position.x+"carX:"+carX);
+		 go(-a,carY);
 		 if(car.position.x!==carX){stop2();}
 	 }else if(goleft){
 		 carY=car.rotation.y;
-		 rotate(a);
-		 //console.log("car.position.y:"+car.position.y+"carY:"+carY);
-		 if(car.position.y!==carY){stop2();}
+		 rotate(b);
+		 if(car.position.y!==carY){stop2();
+		 carY=car.rotation.y;
+		 console.log(carY);}
 	 }else if(goright){
 		 carY=car.rotation.y;
-		 rotate(-a);
-		// console.log("car.position.y:"+car.position.y+"carY:"+carY);
-		 if(car.position.y!==carY){stop2();}
+		 rotate(-b);
+		 if(car.position.y!==carY){stop2();
+		 carY=car.rotation.y;
+		 console.log(carY);}
 	 }
      id = requestAnimationFrame(draw); 
      stat.end(); }
@@ -220,12 +221,12 @@ window.onload=function(){
     switch (e.keyCode) {
       case 87://W前进
           stop2();
-          car.rotation.y = 0;
+          //car.rotation.y = 0;
 		  gofront=true;
           break;
       case 68: //D倒退
           stop2();
-          car.rotation.y = 0;
+          //car.rotation.y = 0;
 		  goback=true;
           break;
         case 65://A向左
