@@ -74,13 +74,29 @@ div{
 				{
 					name:'收入',
 					type:'bar',
-					itemStyle: {normal: {color: '#F33'}},
+					itemStyle: {
+						normal: {
+							color: '#F33',
+							shadowColor: 'rgba(0,0,0,0.3)',
+                            shadowBlur: 10,
+                            shadowOffsetY: 5,
+							shadowOffsetX: 5
+						}
+					},
 					data:[50, 60, 45, 90, 80, 73, 98, 83, 31, 19, 78, 66]
 				},
 				{
 					name:'支出',
 					type:'bar',
-					itemStyle: {normal: {color: '#00CC33'}},
+					itemStyle: {
+						normal: {
+						    color: '#00CC33',
+							shadowColor: 'rgba(0,0,0,0.3)',
+                            shadowBlur: 10,
+                            shadowOffsetY: 5,
+							shadowOffsetX: 5
+						}
+					},
 					data:[45, 10, 10, 15, 50, 30, 17, 50, 20, 15, 40, 20]
 				},
 				{
