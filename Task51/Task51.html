@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ECharts NO.1 - 零基础绘制ECharts图表</title>
+<style type="text/css">
+div{
+	margin:30px auto;
+}
+</style>
+<script src="echarts.min.js"></script>
+</head>
+<body>
+<div id="bar-line" style="width: 900px;height:600px;"></div>
+
+<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('bar-line'));
+		option = {
+			 title: {
+                text: '柱折混合图'
+            },
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					type: 'cross',
+					crossStyle: {
+						color: '#999'
+					}
+				}
+			},
+			toolbox: {
+				feature: {
+					dataView: {show: true, readOnly: false},
+					magicType: {show: true, type: ['line', 'bar']},
+					restore: {show: true},
+					saveAsImage: {show: true}
+				}
+			},
+			legend: {
+				data:['总收入','总支出','利润']
+			},
+			xAxis: [
+				{
+					type: 'category',
+					data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+					axisPointer: {
+						type: 'shadow'
+					}
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					name: '收入',
+					min: 0,
+					max: 100,
+					interval: 10,
+					axisLabel: {
+						formatter: '{value} 万元'
+					}
+				},
+				{
+					type: 'value',
+					name: '支出',
+					min: 0,
+					max: 100,
+					interval: 10,
+					axisLabel: {
+						formatter: '{value} 万元'
+					}
+				}
+			],
+			series: [
+				{
+					name:'收入',
+					type:'bar',
+					data:[50, 60, 45, 90, 80, 73, 98, 83, 31, 19, 78, 66]
+				},
+				{
+					name:'支出',
+					type:'bar',
+					data:[45, 10, 10, 15, 50, 30, 17, 50, 20, 15, 40, 20]
+				},
+				{
+					name:'利润',
+					type:'line',
+					yAxisIndex: 1,
+					data:[5, 50, 35, 75, 30, 43, 81,33, 11, 4, 38, 46]
+				}
+			]
+		};
+		myChart.setOption(option);
+
+</script>
+</body>
+</html>
