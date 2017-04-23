@@ -35,7 +35,9 @@
 										   {name: "UI组件之排序表格",url:"https://catsuger.github.io/my-ife2017/Task28/Task28"}]},
 			                  {name: "百度糯米学院", url:"null",
 							   children: [ {name: "有趣的鼠标悬浮模糊效果",url:"https://catsuger.github.io/my-ife2017/Task29/Task29.html"},
-							               {name: "自定义checkbox radio样式",url:"https://catsuger.github.io/my-ife2017/Task34/Task34.html"} ,
+										   {name: "动态数据绑定（一）",url:"https://catsuger.github.io/my-ife2017/Task30/Task30.html"} ,
+										   {name: "动态数据绑定（二）",url:"https://catsuger.github.io/my-ife2017/Task31/Task31.html"} ,
+										   {name: "自定义checkbox radio样式",url:"https://catsuger.github.io/my-ife2017/Task34/Task34.html"} ,
 							               {name: "自定义网页右键菜单",url:"https://catsuger.github.io/my-ife2017/Task36/Task36.html"} ,
 							               {name: "使用CSS实现折叠面板",url:"https://catsuger.github.io/my-ife2017/Task37/Task37.html"} ,
 							               {name: "正则表达式之入门",url:"https://catsuger.github.io/my-ife2017/Task38/Task38.html"} ,
@@ -45,6 +47,13 @@
 							               {name: "仿豆瓣音乐播放器",url:"https://catsuger.github.io/my-ife2017/Task44/Task44.html"} ,
 										   {name: "实现树形组件",url:"https://catsuger.github.io/my-ife2017/Task45/Task45"}]},
 			                  {name: "ECharts & WebVR学院",url:"null"},
+							   children: [ {name: "Three.js 入门",url:"https://catsuger.github.io/my-ife2017/Task46/Task46.html"},
+										   {name: "光与影",url:"https://catsuger.github.io/my-ife2017/Task47/Task47.html"} ,
+										   {name: "材质与纹理",url:"https://catsuger.github.io/my-ife2017/Task48/Task48.html"} ,
+										   {name: "照相机和交互控制",url:"https://catsuger.github.io/my-ife2017/Task49/Task49.html"} ,
+							               {name: "动画",url:"https://catsuger.github.io/my-ife2017/Task50/Task50.html"} ,
+							               {name: "零基础绘制ECharts图表",url:"https://catsuger.github.io/my-ife2017/Task51/Task51.html"} ,
+							              ]},
 			                  {name: "商业平台学院", url:"null"}]}
 
 			  ];
