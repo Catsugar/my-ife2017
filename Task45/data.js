@@ -26,9 +26,9 @@
 							               {name: "JavaScript和树（三）",url:"https://catsuger.github.io/my-ife2017/Task21/Task21.html"} 
 							              ]},
 			                  {name: "耀耀学院", url:"null",
-							   children: [ {name: "表单（一）单个表单项的检验",url:"https://catsuger.github.io/my-ife2017/Task22/Task22"},
-							               {name: "表单（二）多个表单项的动态校验",url:"https://catsuger.github.io/my-ife2017/Task23/Task23"},
-										   {name: "表单（三）联动",url:"https://catsuger.github.io/my-ife2017/Task24/Task24"},
+							   children: [ {name: "单个表单项的检验",url:"https://catsuger.github.io/my-ife2017/Task22/Task22"},
+							               {name: "多个表单项的动态校验",url:"https://catsuger.github.io/my-ife2017/Task23/Task23"},
+										   {name: "表单联动",url:"https://catsuger.github.io/my-ife2017/Task24/Task24"},
 										   {name: "听指令的小方块（一）",url:"https://catsuger.github.io/my-ife2017/Task25/Task25"},
 										   {name: "听指令的小方块（二）",url:"https://catsuger.github.io/my-ife2017/Task26/Task26"},
 										   {name: "UI组件之浮出层",url:"https://catsuger.github.io/my-ife2017/Task27/Task27"},
